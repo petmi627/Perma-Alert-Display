@@ -4,69 +4,35 @@
   </div>
   <div class="card">
     <div class="card-body">
-      <div class="time-range text-center">
-        <h4>16:00 - 18:00</h4>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <table class="table table-sm">
-            <tbody>
-            <tr>
-              <td width="15%" class="text-right">0</td>
-              <td>Test</td>
-            </tr>
-            <tr>
-              <td width="15%" class="text-right">0</td>
-              <td>Test</td>
-            </tr>
-            <tr>
-              <td width="15%" class="text-right">0</td>
-              <td>Test</td>
-            </tr>
-            <tr>
-              <td width="15%" class="text-right">0</td>
-              <td>Test</td>
-            </tr>
-            <tr>
-              <td width="15%" class="text-right">0</td>
-              <td>Test</td>
-            </tr>
-            <tr>
-              <td width="15%" class="text-right">0</td>
-              <td>Test</td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-md-6">
-          <table class="table table-sm">
-            <tbody>
-            <tr>
-              <td width="15%" class="text-right">0</td>
-              <td>Test</td>
-            </tr>
-            <tr>
-              <td width="15%" class="text-right">0</td>
-              <td>Test</td>
-            </tr>
-            <tr>
-              <td width="15%" class="text-right">0</td>
-              <td>Test</td>
-            </tr>
-            <tr>
-              <td width="15%" class="text-right">0</td>
-              <td>Test</td>
-            </tr>
-            <tr>
-              <td width="15%" class="text-right">0</td>
-              <td>Test</td>
-            </tr>
-            <tr>
-              <td width="15%" class="text-right">0</td>
-              <td>Test</td>
-            </tr>
-            </tbody>
-          </table>
+      <div id="incsaCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item" *ngFor="let duty of duties let i = index" [ngClass]="{'active' : i == 0}">
+            <div class="time-range text-center">
+              <h4>{{ duty.start | date:"HH:mm" }} - {{ duty.end | date:"HH:mm" }}</h4>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <table class="table table-sm">
+                  <tbody>
+                  <tr *ngFor="let member of duty.members_even">
+                    <td width="15%" class="text-right">{{ member.id }}</td>
+                    <td>{{ member.lastName }} {{ member.firstName }}</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-6">
+                <table class="table table-sm">
+                  <tbody>
+                  <tr *ngFor="let member of duty.members_odd">
+                    <td width="15%" class="text-right">{{ member.id }}</td>
+                    <td>{{ member.lastName }} {{ member.firstName }}</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="stats">

@@ -9,13 +9,15 @@ import {DutylistService} from '../../../services/dutylist/dutylist.service';
 })
 export class AmbulanceComponent implements OnInit {
   @Input() vehicle: string;
+  engine: string;
   carousel_id: string;
   dutyList: Duty[];
 
   constructor(private dutyListService: DutylistService) { }
 
   ngOnInit() {
-    this.dutyList = this.dutyListService.getDutyList();
+    this.engine = this.vehicle.replace('-Diekirch', '');
+    this.dutyList = this.dutyListService.getDutyList(this.engine.toLowerCase());
     this.carousel_id = this.vehicle.replace('-', '_') + 'Carousel';
   }
 

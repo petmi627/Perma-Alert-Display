@@ -5,4 +5,6 @@ export interface Duty {
     vehicle: string;
     location: string;
     members: any;
+    members_even?: any;
+    members_odd?: any;
 }
