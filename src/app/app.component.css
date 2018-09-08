@@ -1,3 +1,7 @@
-.row {
+.row-head {
     align-items: flex-start;
+}
+
+.row-middle {
+    align-items: flex-end;
 }
