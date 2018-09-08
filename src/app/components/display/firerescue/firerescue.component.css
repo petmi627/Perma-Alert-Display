@@ -1,0 +1,13 @@
+tr {
+    font-size: 24px;
+}
+
+tr:first-child td {
+    border-top: 0;
+}
+
+.stats {
+    font-size: 20px;
+    margin: -20px;
+    padding: 0;
+}

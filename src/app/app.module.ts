@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ClockComponent } from './components/display/clock/clock.component';
 import { AmbulanceComponent } from './components/display/ambulance/ambulance.component';
+import { FirerescueComponent } from './components/display/firerescue/firerescue.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ClockComponent,
-    AmbulanceComponent
+    AmbulanceComponent,
+    FirerescueComponent
   ],
   imports: [
     BrowserModule
