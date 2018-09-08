@@ -1,32 +1,43 @@
 <div class="bg-dark p-3">
   <div class="text-center">
-    <h3 class="text-light">AMB1-Diekirch</h3>
+    <h3 class="text-light">{{ vehicle }}</h3>
   </div>
   <div class="card">
     <div class="card-body">
-      <div class="time-range text-center">
-        <h4>16:00 - 18:00</h4>
-      </div>
-      <div class="">
-        <table class="table table-sm">
-          <tbody>
-            <tr>
-              <td width="15%" class="text-right">8038</td>
-              <td>Peters Mike</td>
-            </tr>
-            <tr>
-              <td class="text-right">502</td>
-              <td>Wilwert Ted</td>
-            </tr>
-            <tr>
-              <td class="text-right">11427</td>
-              <td>Steffen Patrick</td>
-            </tr>
-          </tbody>
-        </table>
+      <div id="{{ carousel_id }}" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item" *ngFor="let duty of dutyList let i = index" [ngClass]="{'active' : i == 0}">
+            <div class="time-range text-center">
+              <h4>{{ duty.start | date:"HH:mm" }} - {{ duty.end | date:"HH:mm" }}</h4>
+            </div>
+            <div class="">
+              <table class="table table-sm">
+                <tbody>
+                <tr *ngFor="let member of duty.members">
+                  <td width="15%" class="text-right">{{ member.id }}</td>
+                  <td>{{ member.lastName }} {{ member.firstName }}</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#{{ carousel_id }}" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#{{ carousel_id }}" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
       <div class="stats" >
-        <marquee>Letzten Asatz: virun 25 Minuten (14:25:30) +++ 5 Äsatz vir haut +++ 27 Äsatz vir des Woch +++ 1459 Äsatz fir dest Joer</marquee>
+        <marquee>
+          Letzten Asatz: virun 25 Minuten (14:25:30) +++
+          5 Äsatz vir haut +++
+          27 Äsatz vir des Woch +++
+          1459 Äsatz fir dest Joer
+        </marquee>
       </div>
     </div>
   </div>
