@@ -23,15 +23,24 @@ export class FirerescueComponent implements OnInit {
             this.memberOdd = [];
 
             duty.members.forEach((member, i) => {
-                if (i % 2 === 0) {
-                    this.memberEven.push(member);
+                if (member.lastName && member.lastName.toString().length > 14) {
+                    member.firstName = null;
+                } else if (member.lastName && member.lastName.toString().length > 12) {
+                    member.firstName = member.firstName[0] + '.';
+                } else if (member.lastName && member.lastName.toString().length + member.firstName.toString().length > 12
+                ) {
+                    member.firstName = member.firstName[0] + '.';
                 }
 
-                this.memberOdd.push(member);
+                if (i % 2 === 0) {
+                    this.memberEven.push(member);
+                } else {
+                    this.memberOdd.push(member);
+                }
             });
 
             duty.members_odd = this.memberOdd;
-            duty.members_even = this.memberOdd;
+            duty.members_even = this.memberEven;
 
             this.duties.push(duty);
         });

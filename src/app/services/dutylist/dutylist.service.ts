@@ -166,14 +166,14 @@ export class DutylistService {
               location: 'Diekirch',
               members: [
                   {
-                      id: 42,
-                      firstName: 'John',
-                      lastName: 'Doe',
-                  },
-                  {
                       id: null,
                       firstName: null,
                       lastName: null,
+                  },
+                  {
+                      id: 42,
+                      firstName: 'John',
+                      lastName: 'Doe',
                   },
                   {
                       id: null,
@@ -190,9 +190,9 @@ export class DutylistService {
               location: 'Diekirch',
               members: [
                   {
-                      id: 42,
-                      firstName: 'John',
-                      lastName: 'Doe',
+                      id: null,
+                      firstName: null,
+                      lastName: null,
                   },
                   {
                       id: null,
