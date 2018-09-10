@@ -6,6 +6,7 @@ import { ClockComponent } from './components/display/clock/clock.component';
 import { AmbulanceComponent } from './components/display/ambulance/ambulance.component';
 import { FirerescueComponent } from './components/display/firerescue/firerescue.component';
 import { HospitalsComponent } from './components/display/hospitals/hospitals.component';
+import { WeatherComponent } from './components/display/weather/weather.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { HospitalsComponent } from './components/display/hospitals/hospitals.com
     ClockComponent,
     AmbulanceComponent,
     FirerescueComponent,
-    HospitalsComponent
+    HospitalsComponent,
+    WeatherComponent
   ],
   imports: [
     BrowserModule
