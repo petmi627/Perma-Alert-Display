@@ -1,0 +1,14 @@
+.weather-icon-lg {
+    font-size: 72px;
+}
+
+.weather-icon-md {
+    font-size: 48px;
+}
+
+.set-to-back {
+    z-index: 0;
+    position: absolute;
+    margin-left: 100px;
+    margin-top: -65px;
+}
