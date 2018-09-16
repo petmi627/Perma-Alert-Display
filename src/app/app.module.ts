@@ -9,6 +9,7 @@ import { HospitalsComponent } from './components/display/hospitals/hospitals.com
 import { WeatherComponent } from './components/display/weather/weather.component';
 import { CalendarComponent } from './components/display/calendar/calendar.component';
 import { InfocriseComponent } from './components/display/infocrise/infocrise.component';
+import { NewsfeedComponent } from './components/display/newsfeed/newsfeed.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { InfocriseComponent } from './components/display/infocrise/infocrise.com
     HospitalsComponent,
     WeatherComponent,
     CalendarComponent,
-    InfocriseComponent
+    InfocriseComponent,
+    NewsfeedComponent
   ],
   imports: [
     BrowserModule
