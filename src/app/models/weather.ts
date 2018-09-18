@@ -1,5 +1,5 @@
 export interface Weather {
-    temperature: string;
+    temperature: number;
     weather: string;
     location: string;
     country: string;

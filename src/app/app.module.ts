@@ -12,6 +12,7 @@ import { InfocriseComponent } from './components/display/infocrise/infocrise.com
 import { NewsfeedComponent } from './components/display/newsfeed/newsfeed.component';
 import { HeadlinesComponent } from './components/display/headlines/headlines.component';
 import {HospitalsService} from './services/hospitals/hospitals.service';
+import {WeatherService} from './services/weather/weather.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {HospitalsService} from './services/hospitals/hospitals.service';
     BrowserModule
   ],
   providers: [
-      HospitalsService
+      HospitalsService,
+      WeatherService,
   ],
   bootstrap: [AppComponent]
 })
