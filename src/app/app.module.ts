@@ -11,6 +11,7 @@ import { CalendarComponent } from './components/display/calendar/calendar.compon
 import { InfocriseComponent } from './components/display/infocrise/infocrise.component';
 import { NewsfeedComponent } from './components/display/newsfeed/newsfeed.component';
 import { HeadlinesComponent } from './components/display/headlines/headlines.component';
+import {HospitalsService} from './services/hospitals/hospitals.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import { HeadlinesComponent } from './components/display/headlines/headlines.com
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [
+      HospitalsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
