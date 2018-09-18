@@ -1,32 +1,14 @@
 <div class="bg-light p-3">
   <div class="row text-center">
-    <div class="col-4 border-right mb-4 mt-4">
+    <div *ngFor="let hospital of hospitals" class="col-4 border-right mb-4 mt-4">
       <div class="align-items-start">
-        <h4>Norden</h4>
+        <h4>{{ hospital.region }}</h4>
       </div>
       <div style="height: 115px" class="align-items-center">
-        <img class="img-fluid" src="../../../../assets/logos/hospitals/logo_chdn.png" alt="Logo Chdn" />
+        <img class="img-fluid" src="../../../../assets/logos/hospitals/logo_{{ hospital.name | lowercase }}.png" alt="Logo Chdn" />
       </div>
       <div class="align-items-end">
-        <p>CHdN<br/>Ettelbréck</p>
-      </div>
-    </div>
-    <div class="col-4 mb-4 mt-4">
-      <h4>Zentrum</h4>
-      <div style="height: 115px" class="align-items-center">
-        <img class="img-fluid" src="../../../../assets/logos/hospitals/logo_hoki.png" alt="Logo Hoki" />
-      </div>
-      <div class="align-items-end">
-        <p>HoKi<br />Létzebuerg</p>
-      </div>
-    </div>
-    <div class="col-4 border-left mb-4 mt-4">
-      <h4>Süden</h4>
-      <div style="height: 115px" class="align-items-center">
-        <img class="img-fluid" src="../../../../assets/logos/hospitals/logo_chem.png" alt="Logo Chem" />
-      </div>
-      <div class="align-items-end">
-        <p class="">CHEM<br />Esch</p>
+        <p>{{ hospital.name }}<br/>{{ hospital.location }}</p>
       </div>
     </div>
   </div>
