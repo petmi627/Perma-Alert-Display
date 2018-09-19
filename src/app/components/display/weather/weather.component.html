@@ -2,25 +2,20 @@
   <div class="col-md-6 col-sm-12 border-right">
     <div class="row p-3">
       <div class="col-8 text-right">
-        <p class="display-4">24°C</p><span class="text-muted">Diekirch, LU</span>
+        <p class="display-4">{{ currentWeather.temperature }}°C</p>
+        <span class="text-muted">
+          {{ currentWeather.location }}, {{ currentWeather.country }}
+        </span>
       </div>
       <div class="col-4">
-        <i class="wi wi-day-sunny weather-icon-lg mt-3"></i>
+        <i class="wi wi-day-{{ currentWeather.weather }} weather-icon-lg mt-3"></i>
       </div>
     </div>
     <hr />
     <div class="row p-3">
-      <div class="col-4 text-center border-right">
-        <i class="wi wi-day-cloudy weather-icon-md"></i>
-        <p style="font-size: 32px" class="">37°C</p>
-      </div>
-      <div class="col-4">
-        <i class="wi wi-day-rain-wind weather-icon-md"></i>
-        <p style="font-size: 32px" class="">15°C</p>
-      </div>
-      <div class="col-4 border-left">
-        <i class="wi wi-day-snow-thunderstorm weather-icon-md"></i>
-        <p style="font-size: 32px" class="">0°C</p>
+      <div *ngFor="let weather of weatherForecast" class="col-4 text-center border-right">
+        <i class="wi wi-day-{{ weather.weather }} weather-icon-md"></i>
+        <p style="font-size: 32px" class="">{{ weather.temperature }}°C</p>
       </div>
     </div>
   </div>
