@@ -13,6 +13,8 @@ import { NewsfeedComponent } from './components/display/newsfeed/newsfeed.compon
 import { HeadlinesComponent } from './components/display/headlines/headlines.component';
 import {HospitalsService} from './services/hospitals/hospitals.service';
 import {WeatherService} from './services/weather/weather.service';
+import {HeadlineService} from './services/headline/headline.service';
+import {DutylistService} from './services/dutylist/dutylist.service';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import {WeatherService} from './services/weather/weather.service';
   providers: [
       HospitalsService,
       WeatherService,
+      HeadlineService,
+      DutylistService
   ],
   bootstrap: [AppComponent]
 })
