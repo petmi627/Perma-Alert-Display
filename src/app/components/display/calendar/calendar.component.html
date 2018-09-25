@@ -1,55 +1,19 @@
 <div class="row">
-  <div class="col-12">
+  <div *ngFor="let event of events" class="col-12">
     <div class="row event p-3">
       <div class="col-sm-2">
-        <h3>11/09</h3>
+        <h3>{{ event.start | date:"dd/MM" }}</h3>
       </div>
       <div class="col-sm-10 bg-primary">
         <div class="row">
           <div class="col-sm-4 align-middle">
-            19:00 - 21:00
+            {{ event.start | date:"HH:mm" }} - {{ event.start | date:"HH:mm" }}
           </div>
           <div class="col-sm-8">
-            <h4>Memberversammlung</h4>
+            <h4>{{ event.name }}</h4>
           </div>
         </div>
-        <p class="">Centre d'Incendie et de Secours Diekirch</p>
-      </div>
-    </div>
-  </div>
-  <div class="col-12">
-    <div class="row event p-3">
-      <div class="col-sm-2">
-        <h3>11/09</h3>
-      </div>
-      <div class="col-sm-10 bg-primary">
-        <div class="row">
-          <div class="col-sm-4 align-middle">
-            19:00 - 21:00
-          </div>
-          <div class="col-sm-8">
-            <h4>Memberversammlung</h4>
-          </div>
-        </div>
-        <p class="">Centre d'Incendie et de Secours Diekirch</p>
-      </div>
-    </div>
-  </div>
-  <div class="col-12">
-    <div class="row event p-3">
-      <div class="col-sm-2">
-        <h3>11/09</h3>
-      </div>
-      <div class="col-sm-10 bg-primary">
-        <div class="row">
-          <div class="col-sm-4 align-middle">
-            19:00 - 21:00
-          </div>
-          <div class="col-sm-8">
-            <h4>Memberversammlung</h4>
-          </div>
-        </div>
-        <p class="">Centre d'Incendie et de Secours Diekirch</p>
+        <p class="">{{ event.location }}</p>
       </div>
     </div>
   </div>
