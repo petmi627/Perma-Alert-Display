@@ -15,6 +15,7 @@ import {HospitalsService} from './services/hospitals/hospitals.service';
 import {WeatherService} from './services/weather/weather.service';
 import {HeadlineService} from './services/headline/headline.service';
 import {DutylistService} from './services/dutylist/dutylist.service';
+import {CalendarService} from './services/event/calendar.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {DutylistService} from './services/dutylist/dutylist.service';
       HospitalsService,
       WeatherService,
       HeadlineService,
-      DutylistService
+      DutylistService,
+      CalendarService,
   ],
   bootstrap: [AppComponent]
 })
