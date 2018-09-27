@@ -16,6 +16,7 @@ import {WeatherService} from './services/weather/weather.service';
 import {HeadlineService} from './services/headline/headline.service';
 import {DutylistService} from './services/dutylist/dutylist.service';
 import {CalendarService} from './services/event/calendar.service';
+import {NewsService} from './services/newsfeed/news.service';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import {CalendarService} from './services/event/calendar.service';
       HeadlineService,
       DutylistService,
       CalendarService,
+      NewsService,
   ],
   bootstrap: [AppComponent]
 })
