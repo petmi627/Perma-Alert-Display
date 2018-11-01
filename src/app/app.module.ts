@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ClockComponent } from './components/display/clock/clock.component';
@@ -32,7 +33,8 @@ import {NewsService} from './services/newsfeed/news.service';
     HeadlinesComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [
       HospitalsService,

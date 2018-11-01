@@ -16,33 +16,35 @@ export class FirerescueComponent implements OnInit {
     constructor(private dutyListService: DutylistService) { }
 
     ngOnInit() {
-        this.dutyList = this.dutyListService.getDutyList('incsa');
+        this.dutyListService.getDutyList('incsa').subscribe(duties => {
+            this.dutyList = duties;
 
-        this.dutyList.forEach((duty, index) => {
-            this.memberEven = [];
-            this.memberOdd = [];
+            this.dutyList.forEach((duty, index) => {
+                this.memberEven = [];
+                this.memberOdd = [];
 
-            duty.members.forEach((member, i) => {
-                if (member.lastName && member.lastName.toString().length > 14) {
-                    member.firstName = null;
-                } else if (member.lastName && member.lastName.toString().length > 12) {
-                    member.firstName = member.firstName[0] + '.';
-                } else if (member.lastName && member.lastName.toString().length + member.firstName.toString().length > 12
-                ) {
-                    member.firstName = member.firstName[0] + '.';
-                }
+                duty.members.forEach((member, i) => {
+                    if (member.lastName && member.lastName.toString().length > 14) {
+                        member.firstName = null;
+                    } else if (member.lastName && member.lastName.toString().length > 12) {
+                        member.firstName = member.firstName[0] + '.';
+                    } else if (member.lastName && member.lastName.toString().length + member.firstName.toString().length > 12
+                    ) {
+                        member.firstName = member.firstName[0] + '.';
+                    }
 
-                if (i % 2 === 0) {
-                    this.memberEven.push(member);
-                } else {
-                    this.memberOdd.push(member);
-                }
+                    if (i % 2 === 0) {
+                        this.memberEven.push(member);
+                    } else {
+                        this.memberOdd.push(member);
+                    }
+                });
+
+                duty.members_odd = this.memberOdd;
+                duty.members_even = this.memberEven;
+
+                this.duties.push(duty);
             });
-
-            duty.members_odd = this.memberOdd;
-            duty.members_even = this.memberEven;
-
-            this.duties.push(duty);
         });
     }
 }

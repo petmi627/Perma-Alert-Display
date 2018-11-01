@@ -17,7 +17,9 @@ export class AmbulanceComponent implements OnInit {
 
   ngOnInit() {
     this.engine = this.vehicle.replace('-Diekirch', '');
-    this.dutyList = this.dutyListService.getDutyList(this.engine.toLowerCase());
+    this.dutyListService.getDutyList(this.engine.toLowerCase()).subscribe(duties => {
+      this.dutyList = duties;
+    });
     this.carousel_id = this.vehicle.replace('-', '_') + 'Carousel';
   }
 
