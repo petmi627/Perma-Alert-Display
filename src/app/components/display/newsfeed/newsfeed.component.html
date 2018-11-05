@@ -1,36 +1,16 @@
 <div class="row p-3">
   <div class="col-sm-12">
-    <div class="row">
+    <div *ngFor="let post of newsfeed" class="row border-bottom">
       <div class="col-md-12">
         <h3 class="text-danger">
-          112 Instagram
+          {{ post.title }}
         </h3>
       </div>
-      <div class="col-md-3">
-        <img class="img-fluid" src="https://scontent.flux1-1.fna.fbcdn.net/v/t1.0-9/41863907_2232540646819738_991601210119159808_n.jpg?_nc_cat=0&oh=08dae6dd248101a84ab202ae9f1ace74&oe=5C1736DE" >
+      <div class="col-md-3 mb-4">
+        <img class="img-fluid" [src]="post.image" >
       </div>
       <div class="col-md-9">
-        <p>
-          Um Freiden war den Inneminister Dan Kersch scho fir d’Drëtt
-          dëse Summer um Terrain fir verschidde CISen ze besichen ...
-        </p>
-      </div>
-    </div>
-    <hr />
-    <div class="row">
-      <div class="col-md-12">
-        <h3 class="text-danger">
-          112 Instagram
-        </h3>
-      </div>
-      <div class="col-md-3">
-        <img class="img-fluid" src="https://scontent.flux1-1.fna.fbcdn.net/v/t1.0-9/41863907_2232540646819738_991601210119159808_n.jpg?_nc_cat=0&oh=08dae6dd248101a84ab202ae9f1ace74&oe=5C1736DE" >
-      </div>
-      <div class="col-md-9">
-        <p>
-          Um Freiden war den Inneminister Dan Kersch scho fir d’Drëtt
-          dëse Summer um Terrain fir verschidde CISen ze besichen...
-        </p>
+        <p>{{ post.text }}</p>
       </div>
     </div>
   </div>
