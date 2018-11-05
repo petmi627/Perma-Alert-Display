@@ -2,13 +2,13 @@
   <div class="col-md-6 col-sm-12 border-right">
     <div class="row p-3">
       <div class="col-8 text-right">
-        <p class="display-4">{{ currentWeather.temperature }}°C</p>
+        <p class="display-4">{{ currentWeather.temperature }} <i class="wi-celsius"></i></p>
         <span class="text-muted">
           {{ currentWeather.location }}, {{ currentWeather.country }}
         </span>
       </div>
       <div class="col-4">
-        <i class="wi wi-day-{{ currentWeather.weather }} weather-icon-lg mt-3"></i>
+        <i class="wi {{ currentWeather.weather_icon }} weather-icon-lg mt-3"></i>
       </div>
     </div>
     <hr />

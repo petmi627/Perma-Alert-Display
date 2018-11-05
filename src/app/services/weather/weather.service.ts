@@ -1,21 +1,17 @@
 import { Injectable } from '@angular/core';
 import {Weather} from '../../models/weather';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WeatherService {
-  weatherForecast: Weather[];
-  currentWeather: Weather;
+  currentWeatherUrl: string = 'http://localhost:5000/display/cis/diekirch/weather';
 
-  constructor() {
-    this.currentWeather = {
-        temperature: 30,
-        weather: 'sunny',
-        location: 'Diekirch',
-        country: 'LU',
-        datetime: new Date()
-    };
+  weatherForecast: Weather[];
+
+  constructor(private http: HttpClient) {
 
     this.weatherForecast = [
         {
@@ -42,8 +38,8 @@ export class WeatherService {
     ];
   }
 
-  getCurrentWeather() {
-    return this.currentWeather;
+  getCurrentWeather(): Observable<Weather> {
+    return this.http.get<Weather>(this.currentWeatherUrl);
   }
 
   getWeatherForecast() {

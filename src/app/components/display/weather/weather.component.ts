@@ -16,7 +16,9 @@ export class WeatherComponent implements OnInit {
 
   ngOnInit() {
     this.weatherForecast = this.weatherService.getWeatherForecast();
-    this.currentWeather = this.weatherService.getCurrentWeather();
+    this.weatherService.getCurrentWeather().subscribe(weather => {
+          this.currentWeather = weather;
+    });
 
     setInterval(() => {
           this.weatherAlertImage = 'http://alarm.meteozentral.lu/images/map/letzebuerg_index.png';
