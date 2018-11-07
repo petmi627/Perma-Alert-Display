@@ -13,7 +13,15 @@ export class HospitalsComponent implements OnInit {
   constructor(private hospitalService: HospitalsService) { }
 
   ngOnInit() {
-    this.hospitals = this.hospitalService.getHospitals();
+    this.hospitalService.getHospitals().subscribe(hospitals => {
+        this.hospitals = hospitals;
+    });
+
+    setInterval(() => {
+       this.hospitalService.getHospitals().subscribe(hospitals => {
+          this.hospitals = hospitals;
+       });
+    }, 60 * 60 * 1000);
   }
 
 }

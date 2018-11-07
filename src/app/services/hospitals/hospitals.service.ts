@@ -1,36 +1,17 @@
 import { Injectable } from '@angular/core';
 import {Hospitals} from '../../models/hospitals';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HospitalsService {
-  hospitals: Hospitals[];
+  hospitalUrl = 'http://localhost:5000/display/hospitals';
 
-  constructor() {
-    this.hospitals = [
-        {
-          region: 'Norden',
-          name: 'CHdN',
-          fullName: 'Centre Hospitalier du Nord',
-          location: 'Ettelbéck',
-        },
-        {
-            region: 'Zentrum',
-            name: 'CHL',
-            fullName: 'Centre Hospitalier Luxembourg',
-            location: 'Létzebuerg',
-        },
-        {
-            region: 'Süden',
-            name: 'CHEM',
-            fullName: 'Centre Hospitalier Emile Mayerisch',
-            location: 'Esch',
-        }
-    ];
-  }
+  constructor(private http: HttpClient) {}
 
-  getHospitals() {
-    return this.hospitals;
+  getHospitals(): Observable<Hospitals[]> {
+    return this.http.get<Hospitals[]>(this.hospitalUrl);
   }
 }
