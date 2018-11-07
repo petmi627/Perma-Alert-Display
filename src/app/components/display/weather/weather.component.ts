@@ -8,17 +8,26 @@ import {Weather} from '../../../models/weather';
   styleUrls: ['./weather.component.css']
 })
 export class WeatherComponent implements OnInit {
-  weatherForecast: Weather[];
+  weatherForecast: Weather[] = [];
   currentWeather: Weather;
   weatherAlertImage: string = 'http://alarm.meteozentral.lu/images/map/letzebuerg_index.png';
 
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit() {
-    this.weatherForecast = this.weatherService.getWeatherForecast();
     this.weatherService.getCurrentWeather().subscribe(weather => {
           this.currentWeather = weather;
     });
+      this.weatherService.getWeatherForecast().subscribe(forecast => {
+          let forecast_list = [];
+          forecast.forEach((weather, i) => {
+            console.log(weather, i);
+            if (i < 3) {
+             forecast_list.push(weather);
+            }
+          });
+          this.weatherForecast = forecast_list;
+      });
 
     setInterval(() => {
           this.weatherAlertImage = 'http://alarm.meteozentral.lu/images/map/letzebuerg_index.png';
