@@ -12,21 +12,25 @@ export class WeatherComponent implements OnInit {
   currentWeather: Weather;
   weatherAlertImage: string = 'http://alarm.meteozentral.lu/images/map/letzebuerg_index.png';
 
+  loadedCurrentWeather = false;
+  loadedForecast = false;
+
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit() {
     this.weatherService.getCurrentWeather().subscribe(weather => {
           this.currentWeather = weather;
+          this.loadedCurrentWeather = true;
     });
       this.weatherService.getWeatherForecast().subscribe(forecast => {
           let forecast_list = [];
           forecast.forEach((weather, i) => {
-            console.log(weather, i);
             if (i < 3) {
              forecast_list.push(weather);
             }
           });
           this.weatherForecast = forecast_list;
+          this.loadedForecast = true;
       });
 
     setInterval(() => {

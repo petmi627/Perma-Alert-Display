@@ -1,6 +1,6 @@
 <div class="row p-3" style="margin-bottom: -35px">
   <div class="col-md-6 col-sm-12 border-right">
-    <div class="row p-3">
+    <div *ngIf="loadedCurrentWeather" class="row p-3">
       <div class="col-8 text-right">
         <p class="display-4">{{ currentWeather.temperature | number:'1.1-1' }} <i class="wi wi-celsius"></i></p>
         <span class="text-muted">
@@ -12,7 +12,7 @@
       </div>
     </div>
     <hr />
-    <div class="row p-3">
+    <div *ngIf="loadedForecast" class="row p-3">
       <div *ngFor="let weather of weatherForecast" class="col-4 text-center">
         <i class="wi {{ weather.weather_icon }} weather-icon-md"></i>
         <p style="font-size: 32px" class="">{{ weather.temperature | number:'1.0-0' }}<i class="wi wi-celsius"></i></p>
