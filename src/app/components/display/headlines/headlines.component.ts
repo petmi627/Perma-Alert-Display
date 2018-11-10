@@ -10,10 +10,16 @@ import {Headline} from '../../../models/headline';
 export class HeadlinesComponent implements OnInit {
   headlines: Headline[];
 
+  loaded_headlines = false;
+
   constructor(private headlineService: HeadlineService) { }
 
   ngOnInit() {
-    this.headlines = this.headlineService.getHeadlines();
+    this.headlineService.getHeadlines().subscribe(headlines => {
+      console.log(headlines);
+      this.headlines = headlines;
+      this.loaded_headlines = true;
+    });
   }
 
 }
