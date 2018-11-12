@@ -6,21 +6,19 @@
       <div class="tickercontainer">
         <div class="mask">
           <ul class="news-ticker">
-            <li *ngFor="let news of headlines">
+            <li *ngFor="let news of headlines" style="line-height: 0">
               <div *ngIf="news.media" class="news-item">
-                <img [src]="news.media" >
+                <img [src]="news.media" [alt]="news.title">
               </div>
               <h3 class="ticker-title"><a>{{ news.title }}</a></h3>
             </li>
           </ul>
+          <span class="tickeroverlay-left">&nbsp;</span>
+          <span class="tickeroverlay-right">&nbsp;</span>
         </div>
       </div>
     </div>
   </div>
-
-  <script>
-    $(".news-ticker").webTicker();
-  </script>
 
 
 

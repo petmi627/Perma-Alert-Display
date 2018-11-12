@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {HeadlineService} from '../../../services/headline/headline.service';
 import {Headline} from '../../../models/headline';
 
+declare var $:any;
+
 @Component({
   selector: 'app-headlines',
   templateUrl: './headlines.component.html',
@@ -16,9 +18,17 @@ export class HeadlinesComponent implements OnInit {
 
   ngOnInit() {
     this.headlineService.getHeadlines().subscribe(headlines => {
-      console.log(headlines);
       this.headlines = headlines;
       this.loaded_headlines = true;
+
+        $(document).ready(function(e) {
+            $('.news-ticker').webTicker({
+                speed: 112,
+                height: 60,
+                updatetype: 'update',
+            });
+            $('.news-ticker').find('li').css('line-height', 0);
+        });
     });
   }
 
