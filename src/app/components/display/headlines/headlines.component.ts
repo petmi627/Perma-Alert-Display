@@ -23,7 +23,7 @@ export class HeadlinesComponent implements OnInit {
 
         $(document).ready(function(e) {
             $('.news-ticker').webTicker({
-                speed: 112,
+                speed: 200,
                 height: 60,
                 updatetype: 'update',
             });
