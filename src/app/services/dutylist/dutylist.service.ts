@@ -7,7 +7,7 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class DutylistService {
-  duty_list_url_incsa: string = 'http://localhost:5000/display/cis/diekirch/duties/INC';
+  duty_list_url_incsa: string = 'http://localhost:5000/display/cis/diekirch/duties/INCSA-DIEKIRCH';
   duty_list_url_am1: string = 'http://localhost:5000/display/cis/diekirch/duties/AMB1-DIEKIRCH';
   duty_list_url_am2: string = 'http://localhost:5000/display/cis/diekirch/duties/AMB2-DIEKIRCH';
 
