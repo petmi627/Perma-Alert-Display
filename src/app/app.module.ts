@@ -18,6 +18,7 @@ import {HeadlineService} from './services/headline/headline.service';
 import {DutylistService} from './services/dutylist/dutylist.service';
 import {CalendarService} from './services/event/calendar.service';
 import {NewsService} from './services/newsfeed/news.service';
+import {TimeAgoPipe} from 'time-ago-pipe';
 
 @NgModule({
   declarations: [
@@ -30,11 +31,12 @@ import {NewsService} from './services/newsfeed/news.service';
     CalendarComponent,
     InfocriseComponent,
     NewsfeedComponent,
-    HeadlinesComponent
+    HeadlinesComponent,
+    TimeAgoPipe
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
       HospitalsService,
