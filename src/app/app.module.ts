@@ -17,9 +17,9 @@ import {HeadlineService} from './services/headline/headline.service';
 import {DutylistService} from './services/dutylist/dutylist.service';
 import {CalendarService} from './services/event/calendar.service';
 import {TimeAgoPipe} from 'time-ago-pipe';
-import { InstagramComponent } from './components/display/instagram/instagram.component';
 import {InstagramService} from './services/instagram/instagram.service';
 import {TwitterService} from './services/twitter/twitter.service';
+import {SocialfeedComponent} from './components/display/socialfeed/socialfeed.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,7 @@ import {TwitterService} from './services/twitter/twitter.service';
     InfocriseComponent,
     HeadlinesComponent,
     TimeAgoPipe,
-    InstagramComponent
+    SocialfeedComponent
   ],
   imports: [
     BrowserModule,

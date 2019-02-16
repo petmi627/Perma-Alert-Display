@@ -3,11 +3,11 @@ import {Instagram} from '../../../models/instagram';
 import {InstagramService} from '../../../services/instagram/instagram.service';
 
 @Component({
-  selector: 'app-instagram',
-  templateUrl: './instagram.component.html',
-  styleUrls: ['./instagram.component.css']
+  selector: 'app-socialfeed',
+  templateUrl: './socialfeed.component.html',
+  styleUrls: ['./socialfeed.component.css']
 })
-export class InstagramComponent implements OnInit {
+export class SocialfeedComponent implements OnInit {
 
     feed: Instagram[];
 

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InstagramComponent } from './instagram.component';
+import { SocialfeedComponent } from './socialfeed.component';
 
-describe('InstagramComponent', () => {
-  let component: InstagramComponent;
-  let fixture: ComponentFixture<InstagramComponent>;
+describe('SocialfeedComponent', () => {
+  let component: SocialfeedComponent;
+  let fixture: ComponentFixture<SocialfeedComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InstagramComponent ]
+      declarations: [ SocialfeedComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(InstagramComponent);
+    fixture = TestBed.createComponent(SocialfeedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
