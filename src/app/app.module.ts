@@ -19,6 +19,7 @@ import {CalendarService} from './services/event/calendar.service';
 import {TimeAgoPipe} from 'time-ago-pipe';
 import { InstagramComponent } from './components/display/instagram/instagram.component';
 import {InstagramService} from './services/instagram/instagram.service';
+import {TwitterService} from './services/twitter/twitter.service';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import {InstagramService} from './services/instagram/instagram.service';
       DutylistService,
       CalendarService,
       InstagramService,
+      TwitterService
   ],
   bootstrap: [AppComponent]
 })
