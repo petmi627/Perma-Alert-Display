@@ -25,7 +25,10 @@ export class HeadlinesComponent implements OnInit {
             $('.news-ticker').webTicker({
                 speed: 200,
                 height: 60,
-                updatetype: 'update',
+                duplicate: true,
+                startEmpty: false,
+                hoverpause: false,
+                transition: 'ease'
             });
             $('.news-ticker').find('li').css('line-height', 0);
         });
