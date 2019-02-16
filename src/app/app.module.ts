@@ -10,15 +10,15 @@ import { HospitalsComponent } from './components/display/hospitals/hospitals.com
 import { WeatherComponent } from './components/display/weather/weather.component';
 import { CalendarComponent } from './components/display/calendar/calendar.component';
 import { InfocriseComponent } from './components/display/infocrise/infocrise.component';
-import { NewsfeedComponent } from './components/display/newsfeed/newsfeed.component';
 import { HeadlinesComponent } from './components/display/headlines/headlines.component';
 import {HospitalsService} from './services/hospitals/hospitals.service';
 import {WeatherService} from './services/weather/weather.service';
 import {HeadlineService} from './services/headline/headline.service';
 import {DutylistService} from './services/dutylist/dutylist.service';
 import {CalendarService} from './services/event/calendar.service';
-import {NewsService} from './services/newsfeed/news.service';
 import {TimeAgoPipe} from 'time-ago-pipe';
+import { InstagramComponent } from './components/display/instagram/instagram.component';
+import {InstagramService} from './services/instagram/instagram.service';
 
 @NgModule({
   declarations: [
@@ -30,9 +30,9 @@ import {TimeAgoPipe} from 'time-ago-pipe';
     WeatherComponent,
     CalendarComponent,
     InfocriseComponent,
-    NewsfeedComponent,
     HeadlinesComponent,
-    TimeAgoPipe
+    TimeAgoPipe,
+    InstagramComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +44,7 @@ import {TimeAgoPipe} from 'time-ago-pipe';
       HeadlineService,
       DutylistService,
       CalendarService,
-      NewsService,
+      InstagramService,
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,25 @@
+.img-circle {
+    border-radius: 50%;
+}
+
+.post-author-title {
+    line-height: 0.7;
+}
+
+.post-author-subtitle {
+    line-height: 0;
+}
+
+@media only screen and (max-width: 320px) {
+    .img-ig {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media only screen and (max-width: 1920px) {
+    .img-ig {
+        width: 100%;
+        height: 300px;
+    }
+}
