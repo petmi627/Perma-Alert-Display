@@ -9,12 +9,14 @@ import {Infocrise} from '../../../models/infocrise';
 })
 export class InfocriseComponent implements OnInit {
   infocrise: Infocrise;
+  loaded: boolean = false;
 
   constructor(private infocriseService: InfocriseService) { }
 
   ngOnInit() {
     this.infocriseService.getCrisis().subscribe((crisis) => {
       this.infocrise = crisis;
+      this.loaded = true;
     });
 
     setInterval(() => {
