@@ -20,6 +20,7 @@ import {TimeAgoPipe} from 'time-ago-pipe';
 import {InstagramService} from './services/instagram/instagram.service';
 import {TwitterService} from './services/twitter/twitter.service';
 import {SocialfeedComponent} from './components/display/socialfeed/socialfeed.component';
+import {StatsService} from './services/intervention/stats.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import {SocialfeedComponent} from './components/display/socialfeed/socialfeed.co
       DutylistService,
       CalendarService,
       InstagramService,
-      TwitterService
+      TwitterService,
+      StatsService
   ],
   bootstrap: [AppComponent]
 })
