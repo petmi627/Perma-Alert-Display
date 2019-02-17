@@ -1,35 +1,85 @@
 <div class="row p-3">
   <div class="col-sm-12">
-    <div id="instagram_caroussel" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item" *ngFor="let item of feed let i = index" [ngClass]="{'active' : i == 0}">
-          <div class="row">
-            <div class="col-sm-6">
-              <img class="img-ig" [src]="item.image[0]" >
-            </div>
-            <div class="col-sm-6">
-              <div class="row">
-                <div class="col-sm-3 mb-3">
-                  <img class="img-fluid img-circle" [src]="item.author.avatar">
-                </div>
-                <div class="col-sm-9 mb-3">
-                  <h4 class="post-author-title">{{ item.author.full_name }}</h4>
-                  <span class="post-author-subtitle">{{ item.author.username }}</span>
-                </div>
-                <div class="col-sm-4">
-                  <h5><i class="fa fa-heart"></i> {{ item.likes }} </h5>
-                </div>
-                <div class="col-sm-8 text-right">
-                  <h5>{{ item.created | timeAgo }} </h5>
-                </div>
-                <div class="col-sm-12">
-                  <span>{{ item.caption }} - vun Instagram</span>
+
+      <div [style.display]="hideInstagramFeed ? 'none':''" id="instagram_carousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item" *ngFor="let item of instagramFeed let i = index" [ngClass]="{'active' : i == 0}">
+            <div class="row">
+              <div class="col-sm-6">
+                <img class="img-ig" [src]="item.image[0]" >
+              </div>
+              <div class="col-sm-6">
+                <div class="row">
+                  <div class="col-sm-3 mb-3">
+                    <img class="img-fluid img-circle" [src]="item.author.avatar">
+                  </div>
+                  <div class="col-sm-9 mb-3">
+                    <h4 class="post-author-title">{{ item.author.full_name }}</h4>
+                    <span class="post-author-subtitle">{{ item.author.username }}</span>
+                  </div>
+                  <div class="col-sm-4">
+                    <h5><i class="fa fa-heart"></i> {{ item.likes }} </h5>
+                  </div>
+                  <div class="col-sm-8 text-right">
+                    <h5>{{ item.created | timeAgo }} </h5>
+                  </div>
+                  <div class="col-sm-12">
+                    <span>{{ item.caption }}</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+
+      <div [style.display]="hideTwitterFeed ? 'none':''" id="twitter_carousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item" *ngFor="let item of twitterFeed let i = index" [ngClass]="{'active' : i == 0}">
+            <div class="row" *ngIf="item.retweet">
+              <div class="col-12 mb-2">
+                <span>
+                  <i class="fa fa-retweet"></i>
+                  <font class="text-primary"> {{ item.author.full_name }}</font> huet geretweetet
+                </span>
+              </div>
+              <div class="col-1">
+                <img class="img-circle" [src]="item.retweet.author.avatar" />
+              </div>
+              <div class="col-9 mb-3">
+                <h4 class="post-author-title">{{ item.retweet.author.full_name }}</h4>
+                <span class="text-primary post-author-subtitle">@{{ item.retweet.author.username }}</span>
+              </div>
+              <div class="col-2">
+                <h1><i class="text-primary fa fa-twitter text-right"></i></h1>
+              </div>
+              <div class="col-12">
+                <p>{{ item.retweet.text }}</p>
+              </div>
+              <div *ngFor="let image of item.retweet.images" class="col-3">
+                <img class="img-fluid" [src]="image" />
+              </div>
+            </div>
+            <div class="row" *ngIf="!item.retweet">
+              <div class="col-1">
+                <img class="img-circle" [src]="item.author.avatar" />
+              </div>
+              <div class="col-9 mb-3">
+                <h4 class="post-author-title">{{ item.author.full_name }}</h4>
+                <span class="text-primary post-author-subtitle">@{{ item.author.username }}</span>
+              </div>
+              <div class="col-2">
+                <h1><i class="text-primary fa fa-twitter text-right"></i></h1>
+              </div>
+              <div class="col-12">
+                <p>{{ item.text }}</p>
+              </div>
+              <div *ngFor="let image of item.images" class="col-3">
+                <img class="img-fluid" [src]="image" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
   </div>
 </div>

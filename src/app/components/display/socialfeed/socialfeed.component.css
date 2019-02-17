@@ -23,3 +23,10 @@
         height: 300px;
     }
 }
+
+@media only screen and (max-width: 3840px) {
+    .img-ig {
+        width: 100%;
+        height: auto;
+    }
+}
