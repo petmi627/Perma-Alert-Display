@@ -23,12 +23,11 @@ export class HeadlinesComponent implements OnInit {
 
         $(document).ready(function(e) {
             $('.news-ticker').webTicker({
-                speed: 200,
+                speed: 150,
                 height: 60,
                 duplicate: true,
                 startEmpty: false,
                 hoverpause: false,
-                transition: 'ease'
             });
             $('.news-ticker').find('li').css('line-height', 0);
         });
