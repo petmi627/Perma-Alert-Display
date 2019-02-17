@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Duty} from '../../../models/duty';
 import {DutylistService} from '../../../services/dutylist/dutylist.service';
+import {InterventionStats} from '../../../models/intervention-stats';
+import {StatsService} from '../../../services/intervention/stats.service';
 
 @Component({
   selector: 'app-firerescue',
@@ -12,8 +14,10 @@ export class FirerescueComponent implements OnInit {
     duties: Duty[] = [];
     memberEven: Duty[];
     memberOdd: Duty[];
+    stats: InterventionStats;
 
-    constructor(private dutyListService: DutylistService) { }
+    constructor(private dutyListService: DutylistService,
+                private interventionStatsService: StatsService) { }
 
     ngOnInit() {
         this.dutyListService.getDutyList('incsa').subscribe(duties => {
@@ -45,6 +49,10 @@ export class FirerescueComponent implements OnInit {
 
                 this.duties.push(duty);
             });
+        });
+
+        this.interventionStatsService.getStats('incsa').subscribe(stats => {
+            this.stats = stats;
         });
     }
 }

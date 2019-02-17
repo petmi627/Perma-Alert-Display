@@ -33,10 +33,15 @@
       </div>
       <div class="stats" >
         <marquee>
-          Letzten Asatz: virun 25 Minuten (14:25:30) +++
-          5 Äsatz vir haut +++
-          27 Äsatz vir des Woch +++
-          1459 Äsatz fir dest Joer
+          {{ stats.vehicle }}:
+          Letzten Asatz: {{ stats.last_intervention | timeAgo }} ({{ stats.last_intervention | date:'dd.MM.yy HH:mm:ss' }}) +++
+          {{ stats.stats_timeline.interventions_today }} Äsatz vir haut +++
+          {{ stats.stats_timeline.interventions_yesterday }} Äsatz geschter +++
+          {{ stats.stats_timeline.interventions_this_week }} Äsatz vir des Woch +++
+          {{ stats.stats_timeline.interventions_last_week }} Äsatz letzt Woch +++
+          {{ stats.stats_timeline.interventions_this_month }} Äsatz dësen Mount +++
+          {{ stats.stats_timeline.interventions_last_month }} Äsatz letzten Mount +++
+          {{ stats.stats_timeline.intervention_this_year }} Äsatz fir dest Joer
         </marquee>
       </div>
     </div>
