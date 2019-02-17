@@ -21,6 +21,7 @@ import {InstagramService} from './services/instagram/instagram.service';
 import {TwitterService} from './services/twitter/twitter.service';
 import {SocialfeedComponent} from './components/display/socialfeed/socialfeed.component';
 import {StatsService} from './services/intervention/stats.service';
+import {InterventionService} from './services/intervention/intervention.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import {StatsService} from './services/intervention/stats.service';
       CalendarService,
       InstagramService,
       TwitterService,
-      StatsService
+      StatsService,
+      InterventionService
   ],
   bootstrap: [AppComponent]
 })
