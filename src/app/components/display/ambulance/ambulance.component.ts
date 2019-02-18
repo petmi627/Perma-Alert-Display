@@ -15,6 +15,7 @@ export class AmbulanceComponent implements OnInit {
   carousel_id: string;
   dutyList: Duty[];
   stats: InterventionStats;
+  loadedStats: boolean = false;
 
   constructor(private dutyListService: DutylistService,
               private interventionStatsService: StatsService) { }
@@ -26,6 +27,7 @@ export class AmbulanceComponent implements OnInit {
     });
     this.interventionStatsService.getStats(this.engine.toLowerCase()).subscribe(stats => {
       this.stats = stats;
+      this.loadedStats = true;
     });
     this.carousel_id = this.vehicle.replace('-', '_') + 'Carousel';
   }

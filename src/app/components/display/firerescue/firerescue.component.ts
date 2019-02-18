@@ -15,6 +15,7 @@ export class FirerescueComponent implements OnInit {
     memberEven: Duty[];
     memberOdd: Duty[];
     stats: InterventionStats;
+    loadedStats: boolean = false;
 
     constructor(private dutyListService: DutylistService,
                 private interventionStatsService: StatsService) { }
@@ -53,6 +54,7 @@ export class FirerescueComponent implements OnInit {
 
         this.interventionStatsService.getStats('incsa').subscribe(stats => {
             this.stats = stats;
+            this.loadedStats = true;
         });
     }
 }

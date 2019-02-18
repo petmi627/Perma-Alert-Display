@@ -35,7 +35,7 @@
           </div>
         </div>
       </div>
-      <div class="stats">
+      <div *ngIf="loadedStats" class="stats">
         <marquee>
           {{ stats.vehicle }}:
           Letzten Asatz: {{ stats.last_intervention | timeAgo }} ({{ stats.last_intervention | date:'dd.MM.yy HH:mm:ss' }}) +++
