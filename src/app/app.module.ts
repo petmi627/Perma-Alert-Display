@@ -22,6 +22,7 @@ import {TwitterService} from './services/twitter/twitter.service';
 import {SocialfeedComponent} from './components/display/socialfeed/socialfeed.component';
 import {StatsService} from './services/intervention/stats.service';
 import {InterventionService} from './services/intervention/intervention.service';
+import { InterventionComponent } from './components/display/intervention/intervention.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {InterventionService} from './services/intervention/intervention.service'
     InfocriseComponent,
     HeadlinesComponent,
     TimeAgoPipe,
-    SocialfeedComponent
+    SocialfeedComponent,
+    InterventionComponent
   ],
   imports: [
     BrowserModule,

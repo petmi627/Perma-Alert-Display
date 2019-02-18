@@ -1,0 +1,77 @@
+<div class="modal fade" id="interventionModal" tabindex="-1" role="dialog" aria-labelledby="interventionModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div *ngIf="intervention" class="modal-header bg-danger">
+        <h1 class="modal-title" id="exampleModalLongTitle">
+          {{ intervention.type }} >> {{ intervention.engine[0].name}}
+        </h1>
+      </div>
+      <div *ngIf="intervention" class="modal-body">
+        <div class="row">
+          <div class="col-3">
+            <span class="intervention_text">Asatznummer:</span>
+          </div>
+          <div class="col-9">
+            <span class="intervention_text">{{ intervention.intervention }}</span>
+          </div>
+          <div class="col-3">
+            <span class="intervention_text">Asatzmettel:</span>
+          </div>
+          <div class="col-9">
+            <span *ngFor="let vehicle of intervention.engine let i = index" class="intervention_text">
+              {{ vehicle.name }}<font *ngIf="i != intervention.engine.length - 1">, </font>
+            </span>
+          </div>
+          <div class="col-3">
+            <span class="intervention_text">Asatzufang:</span>
+          </div>
+          <div class="col-9">
+            <span class="intervention_text">
+              {{ intervention.beginning | date:'dd.MM.yyyy HH:mm:ss' }}
+            </span>
+          </div>
+          <div class="col-3">
+            <span class="intervention_text">Sachverhalt:</span>
+          </div>
+          <div class="col-9">
+            <span class="intervention_text">
+              {{ intervention.message }}
+            </span>
+          </div>
+          <div class="col-3">
+            <span class="intervention_text">Address:</span>
+          </div>
+          <div class="col-9">
+            <span class="intervention_text">
+              <b *ngIf="intervention.destination.object">{{ intervention.destination.object }} <br /></b>
+            </span>
+            <span *ngIf="intervention.destination.street && intervention.destination.city && intervention.destination.region" class="intervention_text">
+              {{ intervention.destination.street }}, {{ intervention.destination.city }} ({{intervention.destination.region}})
+            </span>
+            <span *ngIf="!intervention.destination.street && intervention.destination.city && intervention.destination.region" class="intervention_text">
+              {{ intervention.destination.city }} ({{intervention.destination.region}})
+            </span>
+            <span *ngIf="intervention.destination_info" class="intervention_text">
+              <br />{{ intervention.destination_info }}
+            </span>
+            <iframe *ngIf="false" width="100%" height="400" frameborder="0" style="border:0" [src]="sanitizer.bypassSecurityTrustResourceUrl(intervention.destination_map)"></iframe>
+          </div>
+          <div class="col-3">
+            <span class="intervention_text">Asatzmettelln:</span>
+          </div>
+          <div class="col-9">
+            <span *ngFor="let vehicle of intervention.alarmed_resources let i = index" class="intervention_text">
+              {{ vehicle.engine }} ({{vehicle.status}})<font *ngIf="i != intervention.alarmed_resources.length - 1">, </font>
+            </span>
+          </div>
+          <div *ngIf="intervention.arrival" class="col-3">
+            <span class="intervention_text">Transportziel:</span>
+          </div>
+          <div *ngIf="intervention.arrival" class="col-9">
+            <span class="intervention_text">{{ intervention.arrival.object }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
