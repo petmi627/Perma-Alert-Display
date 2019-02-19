@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  vehicle = ['AMB1-Diekirch', 'AMB2-Diekirch', 'INCSA'];
-}
+export class AppComponent {}

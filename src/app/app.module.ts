@@ -23,6 +23,8 @@ import {SocialfeedComponent} from './components/display/socialfeed/socialfeed.co
 import {StatsService} from './services/intervention/stats.service';
 import {InterventionService} from './services/intervention/intervention.service';
 import { InterventionComponent } from './components/display/intervention/intervention.component';
+import { DisplayComponent } from './components/display/display.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -37,11 +39,13 @@ import { InterventionComponent } from './components/display/intervention/interve
     HeadlinesComponent,
     TimeAgoPipe,
     SocialfeedComponent,
-    InterventionComponent
+    InterventionComponent,
+    DisplayComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    AppRoutingModule,
   ],
   providers: [
       HospitalsService,
