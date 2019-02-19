@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Intervention} from '../../../models/intervention';
 import {InterventionService} from '../../../services/intervention/intervention.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import {ActivatedRoute} from '@angular/router';
+import {renderFlagCheckIfStmt} from '@angular/compiler/src/render3/view/template';
 
 declare var $:any;
 
@@ -13,13 +15,14 @@ declare var $:any;
 export class InterventionComponent implements OnInit {
   intervention: Intervention;
 
-  constructor(private interventionService: InterventionService,
+  constructor(private route: ActivatedRoute,
+              private interventionService: InterventionService,
               public sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     setInterval(() => {
-        this.interventionService.getCurrentIntervention().subscribe(intervention => {
-            console.log(intervention);
+        const cis_location = this.route.snapshot.paramMap.get('cis');
+        this.interventionService.getCurrentIntervention(cis_location).subscribe(intervention => {
             if (this.intervention) {
                 if (this.intervention.intervention !== intervention.intervention) {
                     $('#interventionModal').modal('show');
@@ -33,7 +36,6 @@ export class InterventionComponent implements OnInit {
                 if (this.intervention) {
                     $('#interventionModal').modal('hide');
                 }
-                console.log('No Intervention there to display');
             }
         });
     }, 10000);
