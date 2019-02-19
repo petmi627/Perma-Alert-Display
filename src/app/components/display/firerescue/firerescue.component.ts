@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Duty} from '../../../models/duty';
 import {DutylistService} from '../../../services/dutylist/dutylist.service';
 import {InterventionStats} from '../../../models/intervention-stats';
 import {StatsService} from '../../../services/intervention/stats.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-firerescue',
@@ -10,6 +11,7 @@ import {StatsService} from '../../../services/intervention/stats.service';
   styleUrls: ['./firerescue.component.css']
 })
 export class FirerescueComponent implements OnInit {
+    @Input() vehicle;
     dutyList: Duty[];
     duties: Duty[] = [];
     memberEven: Duty[];
@@ -17,11 +19,13 @@ export class FirerescueComponent implements OnInit {
     stats: InterventionStats;
     loadedStats: boolean = false;
 
-    constructor(private dutyListService: DutylistService,
+    constructor(private route: ActivatedRoute,
+                private dutyListService: DutylistService,
                 private interventionStatsService: StatsService) { }
 
     ngOnInit() {
-        this.dutyListService.getDutyList('incsa').subscribe(duties => {
+        const cis_location = this.route.snapshot.paramMap.get('cis');
+        this.dutyListService.getDutyList(cis_location, this.vehicle.name).subscribe(duties => {
             this.dutyList = duties;
 
             this.dutyList.forEach((duty, index) => {
@@ -52,7 +56,7 @@ export class FirerescueComponent implements OnInit {
             });
         });
 
-        this.interventionStatsService.getStats('incsa').subscribe(stats => {
+        this.interventionStatsService.getStats(cis_location, this.vehicle.name).subscribe(stats => {
             this.stats = stats;
             this.loadedStats = true;
         });
