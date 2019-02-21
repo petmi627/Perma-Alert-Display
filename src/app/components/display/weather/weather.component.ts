@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {WeatherService} from '../../../services/weather/weather.service';
 import {Weather} from '../../../models/weather';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-weather',
@@ -15,7 +16,8 @@ export class WeatherComponent implements OnInit {
   loadedCurrentWeather = false;
   loadedForecast = false;
 
-  constructor(private weatherService: WeatherService) { }
+  constructor(private route: ActivatedRoute,
+              private weatherService: WeatherService) { }
 
   ngOnInit() {
     this.getWeather();
@@ -30,11 +32,12 @@ export class WeatherComponent implements OnInit {
   }
 
   getWeather() {
-      this.weatherService.getCurrentWeather().subscribe(weather => {
+      const cis_location = this.route.snapshot.paramMap.get('cis');
+      this.weatherService.getCurrentWeather(cis_location).subscribe(weather => {
           this.currentWeather = weather;
           this.loadedCurrentWeather = true;
       });
-      this.weatherService.getWeatherForecast().subscribe(forecast => {
+      this.weatherService.getWeatherForecast(cis_location).subscribe(forecast => {
           let forecast_list = [];
           forecast.forEach((weather, i) => {
               if (i < 3) {
