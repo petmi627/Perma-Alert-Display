@@ -2,16 +2,18 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import {Infocrise} from '../../models/infocrise';
+import {environment} from '../../../environments/environment';
+import {Headline} from '../../models/headline';
 
 @Injectable({
     providedIn: 'root'
 })
 export class InfocriseService {
-    crisisUrl = 'http://localhost:5000/display/crisis';
-
     constructor(private http: HttpClient) {}
 
     getCrisis(): Observable<Infocrise> {
-        return this.http.get<Infocrise>(this.crisisUrl);
+        let url = environment.api_urls.base_url + 'crisis';
+
+        return this.http.get<Infocrise>(url);
     }
 }
