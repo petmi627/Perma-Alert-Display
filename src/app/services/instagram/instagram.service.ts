@@ -2,16 +2,17 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Instagram} from '../../models/instagram';
+import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InstagramService {
-  instagramUrl = 'http://localhost:5000/display/cis/diekirch/instagram';
-
   constructor(private http: HttpClient) { }
 
-  getInstagramFeed(): Observable<Instagram[]> {
-    return this.http.get<Instagram[]>(this.instagramUrl);
+  getInstagramFeed(cis): Observable<Instagram[]> {
+      let url = environment.api_urls.base_url + 'cis/' + cis + '/instagram';
+
+      return this.http.get<Instagram[]>(url);
   }
 }

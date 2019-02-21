@@ -3,6 +3,7 @@ import {Instagram} from '../../../models/instagram';
 import {InstagramService} from '../../../services/instagram/instagram.service';
 import {TwitterService} from '../../../services/twitter/twitter.service';
 import {Twitter} from '../../../models/twitter';
+import {ActivatedRoute} from '@angular/router';
 
 declare var $:any;
 
@@ -19,11 +20,13 @@ export class SocialfeedComponent implements OnInit {
     twitterFeed: Twitter[];
     hideTwitterFeed: boolean = true;
 
-    constructor(private instagramService: InstagramService,
+    constructor(private route: ActivatedRoute,
+                private instagramService: InstagramService,
                 private twitterService: TwitterService) { }
 
     ngOnInit() {
-        this.getInstagramFeed();
+        const cis_location = this.route.snapshot.paramMap.get('cis');
+        this.getInstagramFeed(cis_location);
         let this_class = this;
 
         $(document).ready(function(e) {
@@ -38,7 +41,7 @@ export class SocialfeedComponent implements OnInit {
               console.log(e.to);
               if (e.to === 25) {
                   $(this).carousel('pause');
-                  this_class.getTwitterFeed();
+                  this_class.getTwitterFeed(cis_location);
               }
             });
 
@@ -46,14 +49,14 @@ export class SocialfeedComponent implements OnInit {
                 console.log(e.to);
                 if (e.to === 15) {
                     $(this).carousel('pause');
-                    this_class.getInstagramFeed();
+                    this_class.getInstagramFeed(cis_location);
                 }
             });
         });
     }
 
-    getInstagramFeed() {
-        this.instagramService.getInstagramFeed().subscribe((feed) => {
+    getInstagramFeed(cis_location) {
+        this.instagramService.getInstagramFeed(cis_location).subscribe((feed) => {
             this.instagramFeed = feed;
             this.hideInstagramFeed = false;
             this.hideTwitterFeed = true;
@@ -62,8 +65,8 @@ export class SocialfeedComponent implements OnInit {
         });
     }
 
-    getTwitterFeed() {
-        this.twitterService.getTwitterStatuses().subscribe((statuses) => {
+    getTwitterFeed(cis_location) {
+        this.twitterService.getTwitterStatuses(cis_location).subscribe((statuses) => {
             this.twitterFeed = statuses;
             this.hideTwitterFeed = false;
             this.hideInstagramFeed = true;
