@@ -12,6 +12,7 @@ import {Cis} from '../../models/cis';
 export class DisplayComponent implements OnInit {
   cis;
   loaded: boolean = false;
+  dark: boolean = false;
 
   constructor(private route: ActivatedRoute,
               private cisService: CisService,

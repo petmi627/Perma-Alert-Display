@@ -1,15 +1,15 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div *ngIf="loaded">
-  <div style="overflow: hidden" class="container-fluid bg-light">
+  <div style="overflow: hidden" class="container-fluid" [ngClass]="{'bg-dark text-light' : dark, 'bg-light text-dark' : !dark}">
     <div style="margin-right: 0" class="row row-head">
       <div class="col-lg-4 col-md-12 order-lg-first m-0 p-0">
-        <app-ambulance [vehicle]='cis.engines[0]'></app-ambulance>
+        <app-ambulance [dark]='dark' [vehicle]='cis.engines[0]'></app-ambulance>
       </div>
       <div class="col-lg-4 col-md-12 order-md-first order-sm-first order-xl-first m-0 p-0">
         <app-clock></app-clock>
       </div>
       <div class="col-lg-4 col-md-12 m-0 p-0">
-        <app-ambulance [vehicle]='cis.engines[1]'></app-ambulance>
+        <app-ambulance [dark]='dark' [vehicle]='cis.engines[1]'></app-ambulance>
       </div>
     </div>
     <div style="margin-right: 0;" class="row row-middle">
@@ -17,7 +17,7 @@
         <app-weather></app-weather>
       </div>
       <div style="margin-top: -8%" class="col-lg-4 col-md-12 order-md-first order-sm-first order-xl-first p-0">
-        <app-firerescue [vehicle]='cis.engines[2]'></app-firerescue>
+        <app-firerescue [dark]='dark' [vehicle]='cis.engines[2]'></app-firerescue>
       </div>
       <div class="col-lg-4 col-md-12 m-0 p-0">
         <app-hospitals></app-hospitals>
@@ -28,7 +28,7 @@
         <app-calendar></app-calendar>
       </div>
       <div class="col-lg-4 col-md-12 m-0 p-0">
-        <app-infocrise></app-infocrise>
+        <app-infocrise [dark]='dark' ></app-infocrise>
       </div>
       <div class="col-lg-4 col-md-12 m-0 p-0">
         <app-socialfeed></app-socialfeed>
@@ -36,7 +36,7 @@
     </div>
     <div style="margin-right: 0;" class="row">
       <div class="col-md-12 m-0 p-0">
-        <app-headlines></app-headlines>
+        <app-headlines [dark]='dark'></app-headlines>
       </div>
     </div>
   </div>

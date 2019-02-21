@@ -47,11 +47,7 @@
 }
 
 .ticker-title a{
-    color:#3d3d3d;
     text-decoration: none;
-}
-.ticker-title a:hover{
-    color:#0099e5;
 }
 .tickercontainer,.tickercontainer .mask,ul.news-ticker{
     -webkit-transition:all 0 linear;

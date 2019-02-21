@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Input, Component, OnInit } from '@angular/core';
 import {HeadlineService} from '../../../services/headline/headline.service';
 import {Headline} from '../../../models/headline';
 
@@ -10,6 +10,7 @@ declare var $:any;
   styleUrls: ['./headlines.component.css']
 })
 export class HeadlinesComponent implements OnInit {
+  @Input() dark: boolean;
   headlines: Headline[];
 
   loaded_headlines = false;

@@ -13,6 +13,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class AmbulanceComponent implements OnInit {
   @Input() vehicle;
+  @Input() dark: boolean;
   engine: string;
   carousel_id: string;
   dutyList: Duty[];

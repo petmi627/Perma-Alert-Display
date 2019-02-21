@@ -38,7 +38,7 @@ export class SocialfeedComponent implements OnInit {
             });
 
             $('#instagram_carousel').on('slide.bs.carousel', function (e) {
-              console.log(e.to);
+              // console.log(e.to);
               if (e.to === 25) {
                   $(this).carousel('pause');
                   this_class.getTwitterFeed(cis_location);
@@ -46,7 +46,7 @@ export class SocialfeedComponent implements OnInit {
             });
 
             $('#twitter_carousel').on('slide.bs.carousel', function (e) {
-                console.log(e.to);
+                // console.log(e.to);
                 if (e.to === 15) {
                     $(this).carousel('pause');
                     this_class.getInstagramFeed(cis_location);

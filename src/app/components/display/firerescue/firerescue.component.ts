@@ -12,6 +12,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class FirerescueComponent implements OnInit {
     @Input() vehicle;
+    @Input() dark: boolean;
     dutyList: Duty[];
     duties: Duty[] = [];
     memberEven: Duty[];

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {InfocriseService} from '../../../services/infocrise/infocrise.service';
 import {Infocrise} from '../../../models/infocrise';
 
@@ -8,6 +8,7 @@ import {Infocrise} from '../../../models/infocrise';
   styleUrls: ['./infocrise.component.css']
 })
 export class InfocriseComponent implements OnInit {
+  @Input() dark: boolean;
   infocrise: Infocrise;
   loaded: boolean = false;
 
