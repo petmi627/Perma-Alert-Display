@@ -6,8 +6,7 @@ export const environment = {
   production: false,
 
   api_urls: {
-    base_url: 'http://localhost:5000/display/',
-    headline: 'http://localhost:5000/display/headlines',
+    base_url: 'http://localhost:5000/display/'
   }
 };
 
