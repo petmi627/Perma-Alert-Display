@@ -2,16 +2,17 @@ import { Injectable } from '@angular/core';
 import {Event} from '../../models/event';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CalendarService {
-  url = 'http://localhost:5000/display/cis/diekirch/calendar';
-
   constructor(private http: HttpClient) {}
 
-  getEvents(): Observable<Event[]> {
-    return this.http.get<Event[]>(this.url);
+  getEvents(cis): Observable<Event[]> {
+    let url = environment.api_urls.base_url + 'cis/' + cis + '/calendar';
+
+    return this.http.get<Event[]>(url);
   }
 }

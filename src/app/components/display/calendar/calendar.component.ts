@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CalendarService} from '../../../services/event/calendar.service';
 import {Event} from '../../../models/event';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-calendar',
@@ -10,10 +11,12 @@ import {Event} from '../../../models/event';
 export class CalendarComponent implements OnInit {
   event_list: Event[];
 
-  constructor(private calendarService: CalendarService) { }
+  constructor(private route: ActivatedRoute,
+              private calendarService: CalendarService) { }
 
   ngOnInit() {
-    this.calendarService.getEvents().subscribe(events => {
+    const cis_location = this.route.snapshot.paramMap.get('cis');
+    this.calendarService.getEvents(cis_location).subscribe(events => {
       let event_list = [];
       let list = [];
       events.forEach((event, i) => {
