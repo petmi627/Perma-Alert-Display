@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {WeatherService} from '../../../services/weather/weather.service';
 import {Weather} from '../../../models/weather';
 import {ActivatedRoute} from '@angular/router';
@@ -13,6 +13,7 @@ import {ToastaConfig, ToastaService} from 'ngx-toasta';
 export class WeatherComponent implements OnInit {
   weatherForecast: Weather[] = [];
   currentWeather: Weather;
+  @Output() weather: EventEmitter<Weather> = new EventEmitter();
   weatherAlertImage: string = 'http://alarm.meteozentral.lu/images/map/letzebuerg_index.png';
 
   loadedCurrentWeather = false;
@@ -42,6 +43,7 @@ export class WeatherComponent implements OnInit {
       const cis_location = this.route.snapshot.paramMap.get('cis');
       this.weatherService.getCurrentWeather(cis_location).subscribe(weather => {
           this.currentWeather = weather;
+          this.weather.emit(weather);
           this.loadedCurrentWeather = true;
       });
       this.weatherService.getWeatherForecast(cis_location).subscribe(forecast => {

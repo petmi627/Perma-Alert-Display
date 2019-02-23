@@ -1,6 +1,6 @@
 <div class="row p-3" style="margin-bottom: -55px">
   <div class="col-md-6 col-sm-12 border-right">
-    <div *ngIf="loadedCurrentWeather" class="row p-3 mb-0" style="border-bottom: 1px solid black">
+    <div *ngIf="loadedCurrentWeather" class="row p-3 mb-0 border-bottom">
       <div class="col-8 text-right">
         <p class="display-4">{{ currentWeather.temperature | number:'1.1-1' }} <i class="wi wi-celsius"></i></p>
         <div class="row m-0 p-0" style="margin-top: -50px">
@@ -11,7 +11,7 @@
                 <i class="wi wi-barometer"></i> {{ currentWeather.pressure }}
             </div>
         </div>
-        <span class="text-muted">
+        <span>
           {{ currentWeather.location }}, {{ currentWeather.country }}
         </span>
       </div>
@@ -20,9 +20,13 @@
       </div>
     </div>
     <div *ngIf="loadedForecast" class="row mt-0 p-3">
-      <div *ngFor="let weather of weatherForecast" class="col-4 text-center">
+      <div *ngFor="let weather of weatherForecast let i = index" class="col-4 text-center"
+           [ngClass]="{'border-left' : i != 0}">
         <i class="wi {{ weather.weather_icon }} weather-icon-md"></i>
         <p style="font-size: 32px" class="">{{ weather.temperature | number:'1.0-0' }}<i class="wi wi-celsius"></i></p>
+        <span *ngIf="i == 0">Haut</span>
+        <span *ngIf="i == 1">Muer</span>
+        <span *ngIf="i == 2">{{ weather.datetime | date:'dd/MM' }}</span>
       </div>
     </div>
   </div>

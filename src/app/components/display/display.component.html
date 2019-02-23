@@ -14,7 +14,7 @@
     </div>
     <div style="margin-right: 0;" class="row row-middle">
       <div class="col-lg-4 col-md-12 order-lg-first m-0 p-0">
-        <app-weather></app-weather>
+        <app-weather (weather)="checkTime($event)"></app-weather>
       </div>
       <div style="margin-top: -8%" class="col-lg-4 col-md-12 order-md-first order-sm-first order-xl-first p-0">
         <app-firerescue [dark]='dark' [vehicle]='cis.engines[2]'></app-firerescue>

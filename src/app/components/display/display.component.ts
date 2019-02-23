@@ -5,6 +5,7 @@ import {CisService} from '../../services/cis/cis.service';
 import {Cis} from '../../models/cis';
 import {HeadlineService} from '../../services/headline/headline.service';
 import {ToastaConfig, ToastaService} from 'ngx-toasta';
+import {Weather} from '../../models/weather';
 
 @Component({
   selector: 'app-display',
@@ -14,7 +15,7 @@ import {ToastaConfig, ToastaService} from 'ngx-toasta';
 export class DisplayComponent implements OnInit {
   cis;
   loaded: boolean = false;
-  dark: boolean = false;
+  dark: boolean = true;
 
   constructor(private route: ActivatedRoute,
               private cisService: CisService,
@@ -37,6 +38,15 @@ export class DisplayComponent implements OnInit {
             msg: 'Fehler: ' + error.status + ', Mir kennen PermaAlert net lueden'
         });
     });
+  }
+
+  checkTime(weather: Weather) {
+      let now = new Date();
+      if (now >= weather.sunrise && now <= weather.sunset) {
+          this.dark = false;
+      } else {
+          this.dark = true;
+      }
   }
 
 }

@@ -11,4 +11,6 @@ export interface Weather {
     location: string;
     country: string;
     datetime?: any;
+    sunrise?: any;
+    sunset?: any;
 }
