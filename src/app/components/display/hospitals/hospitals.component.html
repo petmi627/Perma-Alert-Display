@@ -1,6 +1,6 @@
 <div class="p-3">
   <div class="row text-center">
-    <div *ngFor="let hospital of hospitals" class="col-4 border-right mb-4 mt-4">
+    <div *ngFor="let hospital of hospitals let i = index" class="col-4 mb-4 mt-4" [ngClass]="{'border-left' : i != 0}">
       <div class="align-items-start">
         <h4>{{ hospital.region }}</h4>
       </div>
