@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import {CisService} from '../../services/cis/cis.service';
 import {Cis} from '../../models/cis';
+import {HeadlineService} from '../../services/headline/headline.service';
+import {ToastaConfig, ToastaService} from 'ngx-toasta';
 
 @Component({
   selector: 'app-display',
@@ -16,7 +18,12 @@ export class DisplayComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private cisService: CisService,
-              private location: Location) { }
+              private location: Location,
+              private toastaService: ToastaService, private toastaConfig: ToastaConfig) {
+      this.toastaConfig.theme = 'bootstrap';
+      this.toastaConfig.showClose = false;
+      this.toastaConfig.timeout = 12000;
+  }
 
   ngOnInit() {
     const cis_location = this.route.snapshot.paramMap.get('cis');
@@ -24,6 +31,11 @@ export class DisplayComponent implements OnInit {
         console.log(cis);
         this.cis = cis;
         this.loaded = true;
+    }, error => {
+        this.toastaService.error({
+            title: 'Igendeppes as Scheifgangen',
+            msg: 'Fehler: ' + error.status + ', Mir kennen PermaAlert net lueden'
+        });
     });
   }
 

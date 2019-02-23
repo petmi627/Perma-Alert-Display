@@ -24,7 +24,8 @@ import {StatsService} from './services/intervention/stats.service';
 import {InterventionService} from './services/intervention/intervention.service';
 import { InterventionComponent } from './components/display/intervention/intervention.component';
 import { DisplayComponent } from './components/display/display.component';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
+import {ToastaModule} from 'ngx-toasta';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { AppRoutingModule } from './/app-routing.module';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    ToastaModule.forRoot()
   ],
   providers: [
       HospitalsService,

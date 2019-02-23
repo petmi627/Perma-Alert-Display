@@ -1,9 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewContainerRef} from '@angular/core';
 import {Duty} from '../../../models/duty';
 import {DutylistService} from '../../../services/dutylist/dutylist.service';
 import {InterventionStats} from '../../../models/intervention-stats';
 import {StatsService} from '../../../services/intervention/stats.service';
 import {ActivatedRoute} from '@angular/router';
+import {ToastaService, ToastaConfig, ToastOptions, ToastData} from 'ngx-toasta';
 
 @Component({
   selector: 'app-firerescue',
@@ -22,10 +23,28 @@ export class FirerescueComponent implements OnInit {
 
     constructor(private route: ActivatedRoute,
                 private dutyListService: DutylistService,
-                private interventionStatsService: StatsService) { }
+                private interventionStatsService: StatsService,
+                private toastaService: ToastaService, private toastaConfig: ToastaConfig) {
+        this.toastaConfig.theme = 'bootstrap';
+        this.toastaConfig.showClose = false;
+        this.toastaConfig.timeout = 12000;
+    }
 
     ngOnInit() {
         const cis_location = this.route.snapshot.paramMap.get('cis');
+        this.getDutyList(cis_location);
+
+        setInterval(() => {
+            this.getDutyList(cis_location);
+        }, 1000 * 60 * 10);
+
+        this.interventionStatsService.getStats(cis_location, this.vehicle.name).subscribe(stats => {
+            this.stats = stats;
+            this.loadedStats = true;
+        });
+    }
+
+    getDutyList(cis_location) {
         this.dutyListService.getDutyList(cis_location, this.vehicle.name).subscribe(duties => {
             this.dutyList = duties;
 
@@ -55,11 +74,19 @@ export class FirerescueComponent implements OnInit {
 
                 this.duties.push(duty);
             });
-        });
-
-        this.interventionStatsService.getStats(cis_location, this.vehicle.name).subscribe(stats => {
-            this.stats = stats;
-            this.loadedStats = true;
+        }, error => {
+            if (error.status === 404) {
+                this.toastaService.error({
+                    title: 'Igendeppes as Scheifgangen',
+                    msg: 'Momentan as keng Permanence vir ' + this.vehicle.name + ' angedroen!!!'
+                });
+            } else {
+                this.toastaService.error({
+                    title: 'Igendeppes as Scheifgangen',
+                    msg: 'Fehler: ' + error.status + ', Mir kennen Dengschtlëscht ' + this.vehicle.name
+                        + ' net aktualiseiren, Probeier ed mei speit nachengkeier'
+                });
+            }
         });
     }
 }

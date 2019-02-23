@@ -4,6 +4,8 @@ import {InstagramService} from '../../../services/instagram/instagram.service';
 import {TwitterService} from '../../../services/twitter/twitter.service';
 import {Twitter} from '../../../models/twitter';
 import {ActivatedRoute} from '@angular/router';
+import {HeadlineService} from '../../../services/headline/headline.service';
+import {ToastaConfig, ToastaService} from 'ngx-toasta';
 
 declare var $:any;
 
@@ -22,7 +24,12 @@ export class SocialfeedComponent implements OnInit {
 
     constructor(private route: ActivatedRoute,
                 private instagramService: InstagramService,
-                private twitterService: TwitterService) { }
+                private twitterService: TwitterService,
+                private toastaService: ToastaService, private toastaConfig: ToastaConfig) {
+        this.toastaConfig.theme = 'bootstrap';
+        this.toastaConfig.showClose = false;
+        this.toastaConfig.timeout = 12000;
+    }
 
     ngOnInit() {
         const cis_location = this.route.snapshot.paramMap.get('cis');
@@ -62,6 +69,12 @@ export class SocialfeedComponent implements OnInit {
             this.hideTwitterFeed = true;
             $('#instagram_carousel').carousel('cycle');
             $('#twitter_carousel').carousel('pause');
+        }, error => {
+            this.toastaService.error({
+                title: 'Igendeppes as Scheifgangen',
+                msg: 'Fehler: ' + error.status + ', Mir kennen Instagram net aktualiseiren'
+            });
+            this.getTwitterFeed(cis_location);
         });
     }
 
@@ -72,6 +85,12 @@ export class SocialfeedComponent implements OnInit {
             this.hideInstagramFeed = true;
             $('#instagram_carousel').carousel('pause');
             $('#twitter_carousel').carousel('cycle');
+        }, error => {
+            this.toastaService.error({
+                title: 'Igendeppes as Scheifgangen',
+                msg: 'Fehler: ' + error.status + ', Mir kennen Twitter net aktualiseiren'
+            });
+            this.getInstagramFeed(cis_location);
         });
     }
 

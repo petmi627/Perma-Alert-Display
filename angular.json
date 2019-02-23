@@ -26,14 +26,16 @@
               "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "node_modules/font-awesome/css/font-awesome.css",
-              "node_modules/@icon/weather-icons/weather-icons.css"
+              "node_modules/@icon/weather-icons/weather-icons.css",
+              "node_modules/ngx-toasta/styles/style-bootstrap.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
               "node_modules/popper.js/dist/umd/popper.js",
               "node_modules/bootstrap/dist/js/bootstrap.js",
               "node_modules/howler/dist/howler.js",
-              "node_modules/webticker/jquery.webticker.min.js"
+              "node_modules/webticker/jquery.webticker.min.js",
+              "node_modules/ngx-toasta/bundles/ngx-toasta.umd.min.js"
             ]
           },
           "configurations": {

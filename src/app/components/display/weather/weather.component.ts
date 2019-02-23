@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {WeatherService} from '../../../services/weather/weather.service';
 import {Weather} from '../../../models/weather';
 import {ActivatedRoute} from '@angular/router';
+import {HeadlineService} from '../../../services/headline/headline.service';
+import {ToastaConfig, ToastaService} from 'ngx-toasta';
 
 @Component({
   selector: 'app-weather',
@@ -17,14 +19,19 @@ export class WeatherComponent implements OnInit {
   loadedForecast = false;
 
   constructor(private route: ActivatedRoute,
-              private weatherService: WeatherService) { }
+              private weatherService: WeatherService,
+              private toastaService: ToastaService, private toastaConfig: ToastaConfig) {
+      this.toastaConfig.theme = 'bootstrap';
+      this.toastaConfig.showClose = false;
+      this.toastaConfig.timeout = 12000;
+  }
 
   ngOnInit() {
     this.getWeather();
 
       setInterval(() => {
           this.getWeather();
-      }, 60 * 60 * 3600);
+      }, 1000 * 60 * 30);
 
     setInterval(() => {
           this.weatherAlertImage = 'http://alarm.meteozentral.lu/images/map/letzebuerg_index.png';
@@ -46,6 +53,11 @@ export class WeatherComponent implements OnInit {
           });
           this.weatherForecast = forecast_list;
           this.loadedForecast = true;
+      }, error => {
+          this.toastaService.error({
+              title: 'Igendeppes as Scheifgangen',
+              msg: 'Fehler: ' + error.status + ', Mir kennen Wieder net aktualiseiren'
+          });
       });
   }
 
