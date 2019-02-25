@@ -26,6 +26,8 @@ import { InterventionComponent } from './components/display/intervention/interve
 import { DisplayComponent } from './components/display/display.component';
 import { AppRoutingModule } from './app-routing.module';
 import {ToastaModule} from 'ngx-toasta';
+import { HomeComponent } from './components/home/home.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import {ToastaModule} from 'ngx-toasta';
     TimeAgoPipe,
     SocialfeedComponent,
     InterventionComponent,
-    DisplayComponent
+    DisplayComponent,
+    HomeComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
