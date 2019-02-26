@@ -4,10 +4,6 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import {environment} from '../../../environments/environment';
 
-const httpOptions = {
-    headers: new HttpHeaders({'Authorization': 'Bearer ' + localStorage.getItem('token')})
-};
-
 @Injectable({
   providedIn: 'root'
 })
@@ -23,6 +19,6 @@ export class WeatherService {
   getWeatherForecast(cis): Observable<Weather[]> {
       let url = environment.api_urls.base_url + 'cis/' + cis + '/weather/forecast';
 
-      return this.http.get<Weather[]>(url, httpOptions);
+      return this.http.get<Weather[]>(url);
   }
 }
