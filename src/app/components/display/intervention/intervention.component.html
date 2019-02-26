@@ -54,7 +54,9 @@
             <span *ngIf="intervention.destination_info" class="intervention_text">
               <br />{{ intervention.destination_info }}
             </span>
-            <iframe *ngIf="false" width="100%" height="400" frameborder="0" style="border:0" [src]="sanitizer.bypassSecurityTrustResourceUrl(intervention.destination_map)"></iframe>
+            <iframe *ngIf="false" width="100%" height="400" frameborder="0" style="border:0"
+                    [src]="sanitizer.bypassSecurityTrustResourceUrl(intervention.destination_map)"
+            ></iframe>
           </div>
           <div class="col-3">
             <span class="intervention_text">Asatzmettelln:</span>
