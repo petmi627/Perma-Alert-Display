@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ClockComponent } from './components/display/clock/clock.component';
@@ -28,6 +28,10 @@ import { AppRoutingModule } from './app-routing.module';
 import {ToastaModule} from 'ngx-toasta';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { LoginComponent } from './components/login/login.component';
+import {FormsModule} from '@angular/forms';
+import {LoginService} from './services/login/login.service';
+import {TokenInterceptor} from './token.interceptor';
 
 @NgModule({
   declarations: [
@@ -45,12 +49,14 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     InterventionComponent,
     DisplayComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    FormsModule,
     ToastaModule.forRoot()
   ],
   providers: [
@@ -62,7 +68,13 @@ import { NavbarComponent } from './components/navbar/navbar.component';
       InstagramService,
       TwitterService,
       StatsService,
-      InterventionService
+      InterventionService,
+      LoginService,
+      {
+          provide: HTTP_INTERCEPTORS,
+          useClass: TokenInterceptor,
+          multi: true
+      }
   ],
   bootstrap: [AppComponent]
 })
