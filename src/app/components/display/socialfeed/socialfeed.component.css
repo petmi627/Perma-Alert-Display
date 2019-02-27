@@ -10,13 +10,6 @@
     line-height: 0;
 }
 
-@media only screen and (max-width: 320px) {
-    .img-ig {
-        width: 100%;
-        height: auto;
-    }
-}
-
 @media only screen and (max-width: 1920px) {
     .img-ig {
         width: 100%;
