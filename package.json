@@ -27,6 +27,7 @@
     "font-awesome": "^4.7.0",
     "howler": "^2.0.15",
     "jquery": "^3.3.1",
+    "ng-dynamic": "^3.0.2",
     "ng2-toastr": "^4.1.2",
     "ngx-toasta": "^0.1.0",
     "popper.js": "^1.14.5",

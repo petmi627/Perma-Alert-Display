@@ -32,6 +32,10 @@ export class LoginService {
     this.storeTokens(tokens);
   }
 
+  getLoggedUser() {
+      return this.loggedUser;
+  }
+
   isLoggedIn() {
     return !!this.getJwtToken();
   }

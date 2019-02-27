@@ -1,48 +1,51 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div *ngIf="loaded">
-  <div style="overflow: hidden" class="container-fluid" [ngClass]="{'bg-dark text-light' : dark, 'bg-light text-dark' : !dark}">
-    <div style="margin-right: 0" class="row row-head">
-      <div class="col-lg-4 col-md-12 order-lg-first m-0 p-0">
-        <app-ambulance [dark]='dark' [vehicle]='cis.engines[0]'></app-ambulance>
-      </div>
-      <div class="col-lg-4 col-md-12 order-md-first order-sm-first order-xl-first m-0 p-0">
-        <app-clock></app-clock>
-      </div>
-      <div class="col-lg-4 col-md-12 m-0 p-0">
-        <app-ambulance [dark]='dark' [vehicle]='cis.engines[1]'></app-ambulance>
-      </div>
+    <div style="overflow: hidden" class="container-fluid"
+         [ngClass]="{'bg-dark text-light' : dark, 'bg-light text-dark' : !dark}">
+        <div style="margin-right: 0" class="row row-head">
+            <div class="col-lg-4 col-md-12 order-lg-first m-0 p-0">
+                <app-ambulance [dark]='dark' [vehicle]='cis.engines[0]'></app-ambulance>
+            </div>
+            <div class="col-lg-4 col-md-12 order-md-first order-sm-first order-xl-first m-0 p-0">
+                <app-clock></app-clock>
+            </div>
+            <div class="col-lg-4 col-md-12 m-0 p-0">
+                <app-ambulance [dark]='dark' [vehicle]='cis.engines[1]'></app-ambulance>
+            </div>
+        </div>
+        <div style="margin-right: 0;" class="row row-middle">
+            <div class="col-lg-4 col-md-12 order-lg-first m-0 p-0">
+                <app-weather (weather)="checkTime($event)"></app-weather>
+            </div>
+            <div style="margin-top: -8%" class="col-lg-4 col-md-12 order-md-first order-sm-first order-xl-first p-0">
+                <app-firerescue [dark]='dark' [vehicle]='cis.engines[2]'></app-firerescue>
+            </div>
+            <div class="col-lg-4 col-md-12 m-0 p-0">
+                <app-hospitals></app-hospitals>
+            </div>
+        </div>
+        <div style="margin-right: 0;border-top: 5px solid red; border-bottom: 5px solid red" class="row mt-5">
+            <div class="col-lg-4 col-md-12 m-0 p-0">
+                <app-calendar></app-calendar>
+            </div>
+            <div class="col-lg-4 col-md-12 m-0 p-0">
+                <app-infocrise [dark]='dark'></app-infocrise>
+            </div>
+            <div class="col-lg-4 col-md-12 m-0 p-0">
+                <app-socialfeed></app-socialfeed>
+            </div>
+        </div>
+        <div style="margin-right: 0;" class="row">
+            <div class="col-md-12 m-0 p-0">
+                <app-headlines [dark]='dark'></app-headlines>
+            </div>
+        </div>
     </div>
-    <div style="margin-right: 0;" class="row row-middle">
-      <div class="col-lg-4 col-md-12 order-lg-first m-0 p-0">
-        <app-weather (weather)="checkTime($event)"></app-weather>
-      </div>
-      <div style="margin-top: -8%" class="col-lg-4 col-md-12 order-md-first order-sm-first order-xl-first p-0">
-        <app-firerescue [dark]='dark' [vehicle]='cis.engines[2]'></app-firerescue>
-      </div>
-      <div class="col-lg-4 col-md-12 m-0 p-0">
-        <app-hospitals></app-hospitals>
-      </div>
-    </div>
-    <div style="margin-right: 0;border-top: 5px solid red; border-bottom: 5px solid red" class="row mt-5">
-      <div class="col-lg-4 col-md-12 m-0 p-0">
-        <app-calendar></app-calendar>
-      </div>
-      <div class="col-lg-4 col-md-12 m-0 p-0">
-        <app-infocrise [dark]='dark' ></app-infocrise>
-      </div>
-      <div class="col-lg-4 col-md-12 m-0 p-0">
-        <app-socialfeed></app-socialfeed>
-      </div>
-    </div>
-    <div style="margin-right: 0;" class="row">
-      <div class="col-md-12 m-0 p-0">
-        <app-headlines [dark]='dark'></app-headlines>
-      </div>
-    </div>
-  </div>
-  <app-intervention></app-intervention>
+    <app-intervention></app-intervention>
 </div>
 
 <div *ngIf="!loaded">
-  <h1>Loading please wait...</h1>
+    <div class="container mt-5 text-center">
+        <img src="../../../assets/logos/pad-logo.png" alt="Logo" width="400px" height="auto">
+        <h2 i18n="loading">Loading please wait...</h2>
+    </div>
 </div>

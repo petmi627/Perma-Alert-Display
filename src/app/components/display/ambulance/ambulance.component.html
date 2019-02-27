@@ -34,14 +34,14 @@
       <div *ngIf="loadedStats" class="stats" >
         <marquee>
           {{ stats.vehicle }}:
-          Letzten Asatz: {{ stats.last_intervention | timeAgo }} ({{ stats.last_intervention | date:'dd.MM.yy HH:mm:ss' }}) +++
-          {{ stats.stats_timeline.interventions_today }} Äsatz vir haut +++
-          {{ stats.stats_timeline.interventions_yesterday }} Äsatz geschter +++
-          {{ stats.stats_timeline.interventions_this_week }} Äsatz vir des Woch +++
-          {{ stats.stats_timeline.interventions_last_week }} Äsatz letzt Woch +++
-          {{ stats.stats_timeline.interventions_this_month }} Äsatz dësen Mount +++
-          {{ stats.stats_timeline.interventions_last_month }} Äsatz letzten Mount +++
-          {{ stats.stats_timeline.intervention_this_year }} Äsatz fir dest Joer
+          <span>Letzten Asatz: {{ stats.last_intervention | timeAgo }} ({{ stats.last_intervention | date:'dd.MM.yy HH:mm:ss' }}) </span> +++
+          <span>{{ stats.stats_timeline.interventions_today }} Äsatz vir haut </span> +++
+          <span>{{ stats.stats_timeline.interventions_yesterday }} Äsatz geschter </span>+++
+          <span>{{ stats.stats_timeline.interventions_this_week }} Äsatz vir des Woch </span>+++
+          <span>{{ stats.stats_timeline.interventions_last_week }} Äsatz letzt Woch </span>+++
+          <span>{{ stats.stats_timeline.interventions_this_month }} Äsatz dësen Mount </span>+++
+          <span>{{ stats.stats_timeline.interventions_last_month }} Äsatz letzten Mount </span>+++
+          <span>{{ stats.stats_timeline.intervention_this_year }} Äsatz fir dest Joer </span>
         </marquee>
       </div>
     </div>

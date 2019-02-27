@@ -9,13 +9,13 @@
       <div *ngIf="intervention" class="modal-body">
         <div class="row">
           <div class="col-3">
-            <span class="intervention_text">Asatznummer:</span>
+            <span i18n="number" class="intervention_text">Asatznummer:</span>
           </div>
           <div class="col-9">
             <span class="intervention_text">{{ intervention.intervention }}</span>
           </div>
           <div class="col-3">
-            <span class="intervention_text">Asatzmettel:</span>
+            <span i18n="vehicle" class="intervention_text">Asatzmettel:</span>
           </div>
           <div class="col-9">
             <span *ngFor="let vehicle of intervention.engine let i = index" class="intervention_text">
@@ -23,7 +23,7 @@
             </span>
           </div>
           <div class="col-3">
-            <span class="intervention_text">Asatzufang:</span>
+            <span i18n="start" class="intervention_text">Asatzufang:</span>
           </div>
           <div class="col-9">
             <span class="intervention_text">
@@ -31,7 +31,7 @@
             </span>
           </div>
           <div class="col-3">
-            <span class="intervention_text">Sachverhalt:</span>
+            <span i18n="message" class="intervention_text">Sachverhalt:</span>
           </div>
           <div class="col-9">
             <span class="intervention_text">
@@ -39,7 +39,7 @@
             </span>
           </div>
           <div class="col-3">
-            <span class="intervention_text">Address:</span>
+            <span i18n="address" class="intervention_text">Address:</span>
           </div>
           <div class="col-9">
             <span class="intervention_text">
@@ -59,7 +59,7 @@
             ></iframe>
           </div>
           <div class="col-3">
-            <span class="intervention_text">Asatzmettelln:</span>
+            <span i18n="alarmed resources" class="intervention_text">Asatzmettelln:</span>
           </div>
           <div class="col-9">
             <span *ngFor="let vehicle of intervention.alarmed_resources let i = index" class="intervention_text">
@@ -67,7 +67,7 @@
             </span>
           </div>
           <div *ngIf="intervention.arrival" class="col-3">
-            <span class="intervention_text">Transportziel:</span>
+            <span i18n="arrival" class="intervention_text">Transportziel:</span>
           </div>
           <div *ngIf="intervention.arrival" class="col-9">
             <span class="intervention_text">{{ intervention.arrival.object }}</span>
