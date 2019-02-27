@@ -32,6 +32,7 @@ import { LoginComponent } from './components/login/login.component';
 import {FormsModule} from '@angular/forms';
 import {LoginService} from './services/login/login.service';
 import {TokenInterceptor} from './token.interceptor';
+import {TruncatePipe} from './pipe/limitto.pipe';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import {TokenInterceptor} from './token.interceptor';
     DisplayComponent,
     HomeComponent,
     NavbarComponent,
-    LoginComponent
+    LoginComponent,
+    TruncatePipe
   ],
   imports: [
     BrowserModule,

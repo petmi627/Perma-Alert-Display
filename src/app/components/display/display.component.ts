@@ -29,7 +29,6 @@ export class DisplayComponent implements OnInit {
   ngOnInit() {
     const cis_location = this.route.snapshot.paramMap.get('cis');
     this.cisService.getCis(cis_location).subscribe(cis => {
-        console.log(cis);
         this.cis = cis;
         this.loaded = true;
     }, error => {

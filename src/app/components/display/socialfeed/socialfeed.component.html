@@ -24,7 +24,7 @@
                     <h5>{{ item.created | timeAgo }} </h5>
                   </div>
                   <div class="col-sm-12">
-                    <span>{{ item.caption }}</span>
+                    <span>{{ item.caption | limitTo: 250 }}</span>
                   </div>
                 </div>
               </div>
