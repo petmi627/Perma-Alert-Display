@@ -7,6 +7,8 @@ import {Cis} from '../../../models/cis';
 import {ActivatedRoute} from '@angular/router';
 import {ToastaConfig, ToastaService} from 'ngx-toasta';
 
+declare var $:any;
+
 @Component({
   selector: 'app-ambulance',
   templateUrl: './ambulance.component.html',
@@ -33,6 +35,10 @@ export class AmbulanceComponent implements OnInit {
   ngOnInit() {
     const cis_location = this.route.snapshot.paramMap.get('cis');
       this.getDutyList(cis_location);
+
+      $('#' + this.carousel_id).carousel({
+          interval: 7500
+      });
 
       setInterval(() => {
           this.getDutyList(cis_location);

@@ -5,6 +5,8 @@ import {ActivatedRoute} from '@angular/router';
 import {StatsService} from '../../../services/intervention/stats.service';
 import {ToastaConfig, ToastaService} from 'ngx-toasta';
 
+declare var $:any;
+
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
@@ -24,6 +26,10 @@ export class CalendarComponent implements OnInit {
   ngOnInit() {
     const cis_location = this.route.snapshot.paramMap.get('cis');
     this.getCalendar(cis_location);
+
+      $('#calendar').carousel({
+          interval: 7500
+      });
 
     setInterval(() => {
         this.getCalendar(cis_location);

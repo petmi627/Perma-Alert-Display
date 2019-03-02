@@ -6,6 +6,8 @@ import {StatsService} from '../../../services/intervention/stats.service';
 import {ActivatedRoute} from '@angular/router';
 import {ToastaService, ToastaConfig, ToastOptions, ToastData} from 'ngx-toasta';
 
+declare var $:any;
+
 @Component({
   selector: 'app-firerescue',
   templateUrl: './firerescue.component.html',
@@ -33,6 +35,10 @@ export class FirerescueComponent implements OnInit {
     ngOnInit() {
         const cis_location = this.route.snapshot.paramMap.get('cis');
         this.getDutyList(cis_location);
+
+        $('#incsaCarousel').carousel({
+            interval: 7500
+        });
 
         setInterval(() => {
             this.getDutyList(cis_location);
