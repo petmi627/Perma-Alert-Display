@@ -9,3 +9,19 @@ h4 {
 p {
     line-height: 1;
 }
+
+@media only screen and (max-width: 1600px) {
+    .event-time {
+        font-size: 20px;
+    }
+
+    .event-title {
+        font-size: 20px;
+        line-height: 1.2;
+    }
+
+    .calendar-spacing {
+        padding-bottom: 5px !important;
+        padding-top: 5px !important;
+    }
+}

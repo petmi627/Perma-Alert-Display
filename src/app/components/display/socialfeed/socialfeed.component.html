@@ -11,20 +11,20 @@
               <div class="col-sm-6">
                 <div class="row">
                   <div class="col-sm-3 mb-3">
-                    <img class="img-fluid img-circle" [src]="item.author.avatar">
+                    <img class="img-circle" [src]="item.author.avatar">
                   </div>
                   <div class="col-sm-9 mb-3">
                     <h4 class="post-author-title">{{ item.author.full_name }}</h4>
                     <span class="post-author-subtitle">{{ item.author.username }}</span>
                   </div>
                   <div class="col-sm-4">
-                    <h5><i class="fa fa-heart"></i> {{ item.likes }} </h5>
+                    <h5 class="ig-meta"><i class="fa fa-heart"></i> {{ item.likes }} </h5>
                   </div>
                   <div class="col-sm-8 text-right">
-                    <h5>{{ item.created | timeAgo }} </h5>
+                    <h5 class="ig-meta">{{ item.created | timeAgo }} </h5>
                   </div>
-                  <div class="col-sm-12">
-                    <span>{{ item.caption | limitTo: 250 }}</span>
+                  <div class="col-sm-12 ig-caption">
+                    <span class="ig-text">{{ item.caption | limitTo: 250 }}</span>
                   </div>
                 </div>
               </div>
@@ -54,7 +54,7 @@
                 <h1><i class="text-primary fa fa-twitter text-right"></i></h1>
               </div>
               <div class="col-12">
-                <p>{{ item.retweet.text }}</p>
+                <p class="post-text">{{ item.retweet.text }}</p>
               </div>
               <div *ngFor="let image of item.retweet.images" class="col-3">
                 <img class="img-fluid" [src]="image" />

@@ -12,3 +12,10 @@ tr:first-child td {
     margin: -20px;
     padding: 0;
 }
+
+@media only screen and (max-width: 1600px) {
+    tr {
+        font-size: 20px;
+        height: 30px;
+    }
+}

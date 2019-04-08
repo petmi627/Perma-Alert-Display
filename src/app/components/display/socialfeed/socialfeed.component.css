@@ -10,6 +10,52 @@
     line-height: 0;
 }
 
+@media only screen and (max-width: 1600px) {
+    .post-text {
+        margin-top: -15px !important;
+        font-size: 14px;
+    }
+
+    .img-circle {
+        border-radius: 50%;
+        height: 36px;
+        width: 36px;
+    }
+
+    .post-author-title {
+        font-size: 18px;
+        line-height: 0.7;
+    }
+
+    .post-author-subtitle {
+        font-size: 14px;
+        line-height: 0;
+    }
+
+    .img-fluid {
+        width: 80px;
+        height: 50px;
+    }
+
+    .ig-meta {
+        font-size: 14px;
+    }
+
+    .ig-text {
+        font-size: 14px;
+    }
+
+    .ig-caption {
+        line-height: 1 !important;
+    }
+
+    .img-ig {
+        width: 100%;
+        height: 245px !important;
+    }
+}
+
+
 @media only screen and (max-width: 1920px) {
     .img-ig {
         width: 100%;

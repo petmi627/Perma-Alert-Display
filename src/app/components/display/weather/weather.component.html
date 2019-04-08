@@ -1,8 +1,8 @@
-<div class="row p-3" style="margin-bottom: -55px">
+<div class="row p-3 weather-component">
   <div class="col-md-6 col-sm-12 border-right">
     <div *ngIf="loadedCurrentWeather" class="row p-3 mb-0 border-bottom">
       <div class="col-8 text-right">
-        <p class="display-4">{{ currentWeather.temperature | number:'1.1-1' }} <i class="wi wi-celsius"></i></p>
+        <p class="display-4 weather-temp-title">{{ currentWeather.temperature | number:'1.1-1' }} <i class="wi wi-celsius"></i></p>
         <div class="row m-0 p-0" style="margin-top: -50px">
             <div class="col-sm-6 m-0 p-0">
                 <i class="wi wi-humidity"></i> {{ currentWeather.humidity }}%
