@@ -5,6 +5,7 @@ import {InterventionStats} from '../../../models/intervention-stats';
 import {StatsService} from '../../../services/intervention/stats.service';
 import {ActivatedRoute} from '@angular/router';
 import {ToastaService, ToastaConfig, ToastOptions, ToastData} from 'ngx-toasta';
+import {InterventionService} from '../../../services/intervention/intervention.service';
 
 declare var $:any;
 
@@ -26,6 +27,7 @@ export class FirerescueComponent implements OnInit {
     constructor(private route: ActivatedRoute,
                 private dutyListService: DutylistService,
                 private interventionStatsService: StatsService,
+                private interventionService: InterventionService,
                 private toastaService: ToastaService, private toastaConfig: ToastaConfig) {
         this.toastaConfig.theme = 'bootstrap';
         this.toastaConfig.showClose = false;
@@ -44,10 +46,26 @@ export class FirerescueComponent implements OnInit {
             this.getDutyList(cis_location);
         }, 1000 * 60 * 10);
 
-        this.interventionStatsService.getStats(cis_location, this.vehicle.name).subscribe(stats => {
-            this.stats = stats;
-            this.loadedStats = true;
-        });
+        setInterval(() => {
+            this.interventionService.getCurrentIntervention(cis_location).subscribe(intervention => {
+                this.interventionStatsService.getStats(cis_location, this.vehicle.name).subscribe(stats => {
+                    this.stats = stats;
+                    this.loadedStats = true;
+                }, error => {
+                   this.toastaService.error({
+                       title: 'Igendeppes as Scheifgangen',
+                       msg: 'Fehler: ' + error.status + ', Mir kennen Äsatz Statistik net aktualiseiren'
+                   });
+                });
+            }, error => {
+                if (error.status !== 404) {
+                    this.toastaService.error({
+                        title: 'Igendeppes as Scheifgangen',
+                        msg: 'Fehler: ' + error.status + ', Mir kennen Äsatz Statistik net aktualiseiren'
+                    });
+                }
+            });
+        }, 1000 * 60 * 5);
     }
 
     getDutyList(cis_location) {

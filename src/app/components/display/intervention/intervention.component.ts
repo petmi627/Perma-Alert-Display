@@ -45,6 +45,7 @@ export class InterventionComponent implements OnInit {
             if (error.status === 404) {
                 if (this.intervention) {
                     $('#interventionModal').modal('hide');
+                    this.intervention = null;
                 }
             } else {
                 this.toastaService.error({
