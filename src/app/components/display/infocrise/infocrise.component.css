@@ -9,6 +9,10 @@ h5 {
     margin-bottom: -10px;
 }
 
+.crisis-text {
+    font-size: 18px;
+}
+
 @media only screen and (max-width: 1600px) {
     .crisis-text {
         font-size: 14px;

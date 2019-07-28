@@ -8,7 +8,7 @@ import {ActivatedRoute} from '@angular/router';
 import {ToastaConfig, ToastaService} from 'ngx-toasta';
 import {InterventionService} from '../../../services/intervention/intervention.service';
 
-declare var $: any;
+declare var $:any;
 
 @Component({
   selector: 'app-ambulance',
@@ -38,10 +38,6 @@ export class AmbulanceComponent implements OnInit {
     const cis_location = this.route.snapshot.paramMap.get('cis');
       this.getDutyList(cis_location);
 
-      $('#' + this.carousel_id).carousel({
-          interval: 7500
-      });
-
       setInterval(() => {
           this.getDutyList(cis_location);
       }, 1000 * 60 * 10);
@@ -65,11 +61,17 @@ export class AmbulanceComponent implements OnInit {
                   });
               }
           });
-      }, 1000 * 60 * 5);
+      }, 1000 * 60 * 10);
 
 
       this.carousel_id = this.vehicle.duty.replace('-', '_') + 'Carousel';
-  }
+      $(document).ready(function(e) {
+          $('#' + this.carousel_id).carousel({
+              interval: 5500
+          });
+      }.bind(this));
+  })
+
 
   getDutyList(cis_location) {
       this.dutyListService.getDutyList(cis_location, this.vehicle.name).subscribe(duties => {

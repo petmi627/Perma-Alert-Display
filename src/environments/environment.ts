@@ -5,9 +5,9 @@
 export const environment = {
   production: false,
 
-  api_url: 'http://localhost:5000',
+  api_url: 'http://localhost:5000/api/v1',
   api_urls: {
-    base_url: 'http://localhost:5000/display/',
+    base_url: 'http://localhost:5000/api/v1/display/',
   }
 };
 

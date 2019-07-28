@@ -65,7 +65,7 @@ export class FirerescueComponent implements OnInit {
                     });
                 }
             });
-        }, 1000 * 60 * 5);
+        }, 1000 * 60 * 10);
     }
 
     getDutyList(cis_location) {

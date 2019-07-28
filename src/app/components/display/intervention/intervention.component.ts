@@ -52,6 +52,10 @@ export class InterventionComponent implements OnInit {
                     title: 'Igendeppes as Scheifgangen',
                     msg: 'Fehler: ' + error.status + ', Mir kennen Äsatz net aktualiseiren'
                 });
+                if (this.intervention) {
+                    $('#interventionModal').modal('hide');
+                    this.intervention = null;
+                }
             }
         });
     }, 10000);

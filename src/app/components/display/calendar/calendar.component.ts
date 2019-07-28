@@ -28,7 +28,7 @@ export class CalendarComponent implements OnInit {
     this.getCalendar(cis_location);
 
       $('#calendar').carousel({
-          interval: 7500
+          interval: 13000
       });
 
     setInterval(() => {
