@@ -70,7 +70,7 @@ export class AmbulanceComponent implements OnInit {
               interval: 5500
           });
       }.bind(this));
-  })
+  }
 
 
   getDutyList(cis_location) {
